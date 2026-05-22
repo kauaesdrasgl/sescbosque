@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="claro">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sesc Bosque — Rio Branco, AC</title>
+  <meta name="description" content="Sesc Bosque — Cardápio Digital, Espaços e Portal do Associado.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,500&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --azul: #004A93;
+      --azul-e: #003370;
+      --azul-c: #0060BB;
+      --azul-p: #E8F1FA;
+      --verde: #1A6B3C;
+      --verde-c: #2A9D5C;
+      --verde-p: #E6F4EC;
+      --amar: #F5A800;
+      --amar-p: #FFF8E7;
+      --bg: #F2F5F0;
+      --surface: #FFFFFF;
+      --surface-2: #F8FAF7;
+      --border: #DDE5D8;
+      --text-1: #111B0D;
+      --text-2: #344A28;
+      --text-3: #637555;
+      --text-4: #94A88A;
+      --s1: 0 2px 8px rgba(26, 107, 60, .08);
+      --s2: 0 6px 24px rgba(26, 107, 60, .12);
+      --s3: 0 16px 48px rgba(26, 107, 60, .16);
+      --r1: 8px;
+      --r2: 14px;
+      --r3: 20px;
+      --r4: 28px;
+      --fd: 'Fraunces', Georgia, serif;
+      --fb: 'Outfit', 'Segoe UI', sans-serif;
+      --ease: .3s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    [data-tema="escuro"] {
+      --bg: #0C110A;
+      --surface: #141A11;
+      --surface-2: #1A2116;
+      --border: #2A3524;
+      --text-1: #E8F0E4;
+      --text-2: #C0CEBC;
+      --text-3: #8AA485;
+      --text-4: #5A7055;
+      --azul-p: rgba(0, 74, 147, .2);
+      --verde-p: rgba(26, 107, 60, .2);
+      --amar-p: rgba(245, 168, 0, .12);
+      --s1: 0 2px 8px rgba(0, 0, 0, .4);
+      --s2: 0 6px 24px rgba(0, 0, 0, .35);
+      --s3: 0 16px 48px rgba(0, 0, 0, .4);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px
+    }
+
+    body {
+      font-family: var(--fb);
+      background: var(--bg);
+      color: var(--text-1);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      transition: background .3s, color .3s;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: var(--fb)
+    }
+
+    img {
+      display: block;
+      max-width: 100%
+    }
+
+    /* ── HEADER ─────────────────────────────── */
+    /* ── HEADER (idêntico ao restaurante) ── */
+    #header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, .85);
+      backdrop-filter: blur(12px);
+      border-bottom: 0vh solid rgba(255, 255, 255, .12);
+    }
+
+    .logo-header {
+      height: auto;
+      width: 3vi;
+      min-width: 45px;
+    }
+
+    .header-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 3vi;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: .75rem
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--azul);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-icon svg {
+      display: block
+    }
+
+    .logo-text {
+      font-family: var(--fd);
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: -.01em
+    }
+
+    .logo-sub {
+      font-size: .65rem;
+      color: var(--text-4);
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase
+    }
+
+    .btn-tema {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, .8);
+      transition: var(--ease);
+    }
+
+    .btn-tema:hover {
+      background: rgba(255, 255, 255, .22)
+    }
+
+
+    /* ── HERO ───────────────────────────────── */
+    .hero {
+      background:
+        linear-gradient(160deg, rgba(0, 74, 147, .06) 0%, rgba(26, 107, 60, .12) 50%, rgba(245, 168, 0, .06) 100%),
+        var(--bg);
+      padding: 5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(26, 107, 60, .1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--verde-p);
+      color: var(--verde);
+      border: 1px solid rgba(26, 107, 60, .2);
+      border-radius: 100px;
+      padding: .35rem 1rem;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--verde-c);
+      animation: pulse 2s infinite
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: .4
+      }
+    }
+
+    .hero-title {
+      font-family: var(--fd);
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 900;
+      letter-spacing: -.03em;
+      line-height: 1.08;
+      color: var(--text-1);
+      margin-bottom: .75rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--verde)
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--text-3);
+      max-width: 460px;
+      margin: 0 auto 2rem;
+      font-weight: 400
+    }
+
+    .hero-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .75rem;
+      color: var(--text-4);
+      margin-top: .5rem;
+    }
+
+    .hero-meta svg {
+      flex-shrink: 0
+    }
+
+    /* ── CARDS ──────────────────────────────── */
+    .cards-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem
+    }
+
+    .cards-label {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--text-4);
+      margin-bottom: 1.5rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card-link {
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r3);
+      overflow: hidden;
+      box-shadow: var(--s1);
+      transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
+      position: relative;
+    }
+
+    .card-link:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--s3);
+    }
+
+    .card-link:hover .card-arrow {
+      opacity: 1;
+      transform: translateX(0)
+    }
+
+    .card-img-area {
+      height: 160px;
+      overflow: hidden;
+      position: relative;
+      background: var(--surface-2);
+    }
+
+    .card-img-area img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease
+    }
+
+    .card-link:hover .card-img-area img {
+      transform: scale(1.06)
+    }
+
+    .card-badge {
+      position: absolute;
+      top: .75rem;
+      left: .75rem;
+      background: rgba(0, 0, 0, .55);
+      backdrop-filter: blur(6px);
+      color: #fff;
+      border-radius: 100px;
+      font-size: .65rem;
+      font-weight: 700;
+      padding: .25rem .7rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .card-body {
+      padding: 1.25rem
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--r1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: .85rem;
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-family: var(--fd);
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: -.02em;
+      margin-bottom: .35rem
+    }
+
+    .card-desc {
+      font-size: .8rem;
+      color: var(--text-3);
+      line-height: 1.55
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+      padding-top: .85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .card-tag {
+      font-size: .68rem;
+      font-weight: 600;
+      padding: .2rem .6rem;
+      border-radius: 100px;
+      letter-spacing: .04em;
+    }
+
+    .card-arrow {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity var(--ease), transform var(--ease);
+    }
+
+    /* card color themes */
+    .card-blue .card-icon {
+      background: var(--azul-p);
+      color: var(--azul)
+    }
+
+    .card-blue .card-badge {
+      background: rgba(0, 74, 147, .7)
+    }
+
+    .card-blue .card-tag {
+      background: var(--azul-p);
+      color: var(--azul)
+    }
+
+    .card-blue .card-arrow {
+      background: var(--azul-p);
+      color: var(--azul)
+    }
+
+    .card-blue:hover {
+      border-color: var(--azul)
+    }
+
+    .card-yellow .card-icon {
+      background: var(--amar-p);
+      color: var(--amar)
+    }
+
+    .card-yellow .card-badge {
+      background: rgba(180, 120, 0, .7)
+    }
+
+    .card-yellow .card-tag {
+      background: var(--amar-p);
+      color: #8A6000
+    }
+
+    .card-yellow .card-arrow {
+      background: var(--amar-p);
+      color: #8A6000
+    }
+
+    .card-yellow:hover {
+      border-color: var(--amar)
+    }
+
+    .card-green .card-icon {
+      background: var(--verde-p);
+      color: var(--verde)
+    }
+
+    .card-green .card-badge {
+      background: rgba(26, 107, 60, .7)
+    }
+
+    .card-green .card-tag {
+      background: var(--verde-p);
+      color: var(--verde)
+    }
+
+    .card-green .card-arrow {
+      background: var(--verde-p);
+      color: var(--verde)
+    }
+
+    .card-green:hover {
+      border-color: var(--verde)
+    }
+
+    .card-slate .card-icon {
+      background: #EEF0F5;
+      color: #4A5670
+    }
+
+    .card-slate .card-badge {
+      background: rgba(50, 60, 90, .7)
+    }
+
+    .card-slate .card-tag {
+      background: #EEF0F5;
+      color: #4A5670
+    }
+
+    .card-slate .card-arrow {
+      background: #EEF0F5;
+      color: #4A5670
+    }
+
+    .card-slate:hover {
+      border-color: #9AA3B8
+    }
+
+    [data-tema="escuro"] .card-slate .card-icon {
+      background: #1E2430;
+      color: #8A98B8
+    }
+
+    [data-tema="escuro"] .card-slate .card-tag {
+      background: #1E2430;
+      color: #8A98B8
+    }
+
+    [data-tema="escuro"] .card-slate .card-arrow {
+      background: #1E2430;
+      color: #8A98B8
+    }
+
+    /* ── FOOTER ─────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem;
+      text-align: center;
+      font-size: .75rem;
+      color: var(--text-4);
+    }
+
+    footer span {
+      font-weight: 600;
+      color: var(--text-3)
+    }
+
+    /* ── TOAST ──────────────────────────────── */
+    #toasts {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      z-index: 9999
+    }
+
+    .toast {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r2);
+      padding: .7rem 1rem;
+      font-size: .82rem;
+      font-weight: 500;
+      box-shadow: var(--s2);
+      animation: slideIn .25s ease;
+      max-width: 300px;
+    }
+
+    .toast.fadeout {
+      animation: fadeOut .3s ease forwards
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: translateY(8px)
+      }
+    }
+
+    .toast-verde {
+      color: #166534;
+      border-color: #bbf7d0
+    }
+
+    .toast-azul {
+      color: var(--azul);
+      border-color: var(--azul-p)
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 3.5rem 1rem 2rem
+      }
+
+      .cards-section {
+        padding: 2rem 1rem 3rem
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo-header">
+          <img src="./logos/Logo Sesc padrão  White (536x536).svg" alt="">
+        </div>
+      </div>
+      <div class="header-right">
+        <button class="btn-tema" onclick="toggleTema()" aria-label="Tema">
+          <svg id="icon-tema" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      Serviços digitais disponíveis
+    </div>
+    <h1 class="hero-title">Bem-vindo ao<br><em>Sesc Bosque</em></h1>
+    <p class="hero-desc">Acesse o cardápio do restaurante, lanchonete, reserve espaços ou consulte seu painel de
+      associado.</p>
+    <div class="hero-meta">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <polyline points="12 6 12 12 16 14" />
+      </svg>
+      <span id="ultima-atualizacao">Carregando…</span>
+    </div>
+  </section>
+
+  <section class="cards-section">
+    <div class="cards-label">Escolha um serviço</div>
+    <div class="cards-grid">
+
+      <!-- Restaurante -->
+      <a href="./restaurante.html" class="card-link card-blue">
+        <div class="card-img-area">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=75" alt="Restaurante"
+            loading="lazy">
+          <div class="card-badge">Almoço</div>
+        </div>
+        <div class="card-body">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+              <path d="M7 2v20" />
+              <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7" />
+            </svg>
+          </div>
+          <div class="card-title">Restaurante</div>
+          <div class="card-desc">Pratos regionais e refeições completas com preço especial para associados.</div>
+          <div class="card-footer">
+            <span class="card-tag">Seg – Sex · 11h–14h</span>
+            <div class="card-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Lanchonete -->
+      <a href="./lanchonete.html" class="card-link card-yellow">
+        <div class="card-img-area">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=75" alt="Lanchonete"
+            loading="lazy">
+          <div class="card-badge">Lanchonete</div>
+        </div>
+        <div class="card-body">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+              <line x1="6" y1="1" x2="6" y2="4" />
+              <line x1="10" y1="1" x2="10" y2="4" />
+              <line x1="14" y1="1" x2="14" y2="4" />
+            </svg>
+          </div>
+          <div class="card-title">Lanchonete</div>
+          <div class="card-desc">Lanches, salgados, sucos regionais, café e muito mais para seu intervalo.</div>
+          <div class="card-footer">
+            <span class="card-tag">Seg – Sáb · 8h–17h</span>
+            <div class="card-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Espaços -->
+      <a href="./espacos.html" class="card-link card-green">
+        <div class="card-img-area">
+          <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=75" alt="Espaços" loading="lazy">
+          <div class="card-badge">Agendamento</div>
+        </div>
+        <div class="card-body">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+          </div>
+          <div class="card-title">Espaços</div>
+          <div class="card-desc">Quadras, auditório, salão de festas, sala de reuniões e campo society.</div>
+          <div class="card-footer">
+            <span class="card-tag">Solicitar agendamento</span>
+            <div class="card-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Painel -->
+      <a href="./painel.html" class="card-link card-slate">
+        <div class="card-img-area"
+          style="background: linear-gradient(135deg, #1A2436, #2A3A56); display:flex; align-items:center; justify-content:center">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          <div class="card-badge">Associado</div>
+        </div>
+        <div class="card-body">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </div>
+          <div class="card-title">Meu Painel</div>
+          <div class="card-desc">Acesse sua área pessoal, acompanhe solicitações e veja sua credencial.</div>
+          <div class="card-footer">
+            <span class="card-tag">Login com matrícula</span>
+            <div class="card-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 <span>Sesc Acre</span> · Todos os direitos reservados · Plataforma offline-first</p>
+  </footer>
+
+  <div id="toasts"></div>
+
+  <script src="./script.js"></script>
+  <script>
+    (function () {
+      const ua = AppData.obterUltimaAtualizacao();
+      const el = document.getElementById('ultima-atualizacao');
+      if (ua && el) {
+        el.textContent = 'Atualizado em ' + new Date(ua).toLocaleString('pt-BR', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
+      } else if (el) {
+        el.textContent = 'Dados carregados localmente';
+      }
+      // Escuta atualizações de outras abas
+      window.addEventListener('storage', () => {
+        const ua2 = AppData.obterUltimaAtualizacao();
+        if (ua2 && el) {
+          el.textContent = 'Atualizado em ' + new Date(ua2).toLocaleString('pt-BR', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>
