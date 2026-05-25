@@ -589,207 +589,125 @@
     <div id="toasts"></div>
 
     <!-- ========== SCRIPT CENTRAL (AppData) ========== -->
-    <script src="./script.js"></script>
+    <script src="./supabaseClient.js"></script>
 
     <script>
-      // ========== PÁGINA LANCHONETE INTEGRADA AO AppData ==========
-      let filtroAtivo = "todos";
       let dadosLanchonete = [];
       let categoriasDisponiveis = [];
-
-      function carregarDadosGlobal() {
-        const dadosCompletos = AppData.carregar();
-        const lanchonete = dadosCompletos.menu.lanchonete;
-        dadosLanchonete = lanchonete.itens || [];
-        categoriasDisponiveis = lanchonete.categorias || [];
-
-        // Garante que as categorias estão na ordem padrão (opcional, mas melhora a exibição)
-        const ordemPadrao = [
-          "Lanches",
-          "Salgados",
-          "Sucos & Vitaminas",
-          "Cafés & Bebidas Quentes",
-          "Doces & Bolos",
-        ];
-        categoriasDisponiveis.sort((a, b) => {
-          let ia = ordemPadrao.indexOf(a);
-          let ib = ordemPadrao.indexOf(b);
-          if (ia === -1 && ib === -1) return 0;
-          if (ia === -1) return 1;
-          if (ib === -1) return -1;
-          return ia - ib;
-        });
+      let filtroAtivo = "todos";
+    
+      async function carregarLanchonete() {
+        document.getElementById("menu-content").innerHTML = `<div class="empty-state"><p>Carregando cardápio da lanchonete...</p></div>`;
+    
+        window.initSupabase();
+        await new Promise(r => setTimeout(r, 500));
+    
+        const dados = await window.fetchFromSupabase('lanchonete_itens');
+    
+        if (dados && dados.length > 0) {
+          dadosLanchonete = dados.map(item => ({
+            nome: item.nome,
+            categoria: item.categoria,
+            descricao: item.descricao,
+            precoPublico: parseFloat(item.preco_publico) || 0,
+            precoSesc: parseFloat(item.preco_sesc) || 0,
+            disponivel: item.disponivel !== false,
+            destaque: item.destaque === true,
+            tags: Array.isArray(item.tags) ? item.tags : [],
+            img: item.img
+          }));
+    
+          categoriasDisponiveis = [...new Set(dadosLanchonete.map(i => i.categoria).filter(Boolean))];
+          console.log(`✅ ${dadosLanchonete.length} itens carregados do Supabase`);
+        } else {
+          console.warn("⚠️ Usando fallback local");
+          const localData = typeof AppData !== 'undefined' ? AppData.carregar() : { menu: { lanchonete: { itens: [] } } };
+          dadosLanchonete = localData.menu?.lanchonete?.itens || [];
+          categoriasDisponiveis = ["Lanches", "Salgados", "Sucos & Vitaminas", "Café & Bebidas", "Doces & Bolos"];
+        }
+    
+        renderFiltros();
+        renderCardapio();
+        if (typeof toast === "function") toast("Cardápio carregado!", "verde");
       }
-
+    
       function renderFiltros() {
         const container = document.getElementById("filtros-container");
         if (!container) return;
-        const catsComItens = categoriasDisponiveis.filter((c) =>
-          dadosLanchonete.some((i) => i.categoria === c),
-        );
-        container.innerHTML =
-          `<button class="filtro-btn ${filtroAtivo === "todos" ? "ativo" : ""}" onclick="filtrar('todos', this)">Todos</button>` +
-          catsComItens
-            .map(
-              (c) =>
-                `<button class="filtro-btn ${filtroAtivo === c ? "ativo" : ""}" onclick="filtrar('${c.replace(/'/g, "\\'")}', this)">${c}</button>`,
-            )
-            .join("");
+        let html = `<button class="filtro-btn ${filtroAtivo === "todos" ? "ativo" : ""}" onclick="filtrar('todos', this)">Todos</button>`;
+        categoriasDisponiveis.forEach(c => {
+          html += `<button class="filtro-btn ${filtroAtivo === c ? "ativo" : ""}" onclick="filtrar('${c}', this)">${c}</button>`;
+        });
+        container.innerHTML = html;
       }
-
+    
       function filtrar(cat, btn) {
         filtroAtivo = cat;
-        document
-          .querySelectorAll(".filtro-btn")
-          .forEach((b) => b.classList.remove("ativo"));
+        document.querySelectorAll(".filtro-btn").forEach(b => b.classList.remove("ativo"));
         if (btn) btn.classList.add("ativo");
         renderCardapio();
       }
-
+    
       function renderCardapio() {
         const container = document.getElementById("menu-content");
         if (!container) return;
-
-        const itensVisiveis = dadosLanchonete.filter(
-          (i) => i.disponivel !== false,
-        );
-        const catsExibir =
-          filtroAtivo === "todos"
-            ? categoriasDisponiveis.filter((c) =>
-                itensVisiveis.some((i) => i.categoria === c),
-              )
-            : [filtroAtivo];
-
-        if (!itensVisiveis.length) {
-          container.innerHTML = `<div class="empty-state">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-        </svg>
-        <p>Nenhum item disponível no momento.</p>
-      </div>`;
+    
+        const itensVisiveis = dadosLanchonete.filter(i => i.disponivel !== false);
+        if (itensVisiveis.length === 0) {
+          container.innerHTML = `<div class="empty-state"><p>Nenhum item disponível.</p></div>`;
           return;
         }
-
+    
         let html = "";
-        catsExibir.forEach((cat) => {
-          const itensFiltrados = itensVisiveis.filter(
-            (i) => i.categoria === cat,
-          );
-          if (!itensFiltrados.length) return;
-          const total = itensFiltrados.length;
-          html += `<h2 class="section-title">${cat} <span class="section-count">${total} ${total === 1 ? "item" : "itens"}</span></h2>`;
-          html += `<div class="menu-grid">${itensFiltrados.map(renderItem).join("")}</div>`;
+        const catsExibir = filtroAtivo === "todos" ? categoriasDisponiveis : [filtroAtivo];
+    
+        catsExibir.forEach(cat => {
+          const itens = itensVisiveis.filter(i => i.categoria === cat);
+          if (!itens.length) return;
+          html += `<h2 class="section-title">${cat} <span class="section-count">${itens.length} itens</span></h2>`;
+          html += `<div class="menu-grid">${itens.map(renderItem).join("")}</div>`;
         });
-
-        container.innerHTML =
-          html ||
-          `<div class="empty-state"><svg width="48" height="48" ...></svg><p>Nenhum item nessa categoria.</p></div>`;
+    
+        container.innerHTML = html;
       }
-
+    
       function renderItem(item) {
-        const pub = item.precoPublico ?? 0;
-        const sesc = item.precoSesc ?? pub;
-        const desconto =
-          pub > 0 && sesc < pub ? Math.round((1 - sesc / pub) * 100) : 0;
+        const pub = item.precoPublico || 0;
+        const sesc = item.precoSesc || pub;
+        const desconto = pub > 0 && sesc < pub ? Math.round((1 - sesc / pub) * 100) : 0;
         const tags = item.tags || [];
-
+    
         return `<div class="item-card">
-      <div style="position:relative">
-        <img class="item-img"
-          src="${item.img || "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400"}"
-          alt="${item.nome}" loading="lazy"
-          onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400'">
-        <div class="item-badges">
-          ${item.destaque ? '<span class="badge badge-destaque">⭐ Destaque</span>' : ""}
-        </div>
-      </div>
-      <div class="item-body">
-        <div class="item-name">${item.nome}</div>
-        <div class="item-desc">${item.descricao || ""}</div>
-        ${tags.length ? `<div class="item-tags">${tags.map((t) => `<span class="item-tag">${t}</span>`).join("")}</div>` : ""}
-        <div class="item-price">
-          <div>
-            <div class="price-label">Associado Sesc</div>
-            <div class="price-sesc">R$ ${sesc.toFixed(2).replace(".", ",")}</div>
+          <div style="position:relative">
+            <img class="item-img" src="${item.img || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400'}" alt="${item.nome}">
+            ${item.destaque ? '<div class="item-badges"><span class="badge badge-destaque">⭐ Destaque</span></div>' : ''}
           </div>
-          ${
-            desconto > 0
-              ? `<span class="price-pub">R$ ${pub.toFixed(2).replace(".", ",")}</span>
-             <span class="price-badge">-${desconto}%</span>`
-              : ""
-          }
-        </div>
-      </div>
-    </div>`;
+          <div class="item-body">
+            <div class="item-name">${item.nome}</div>
+            <div class="item-desc">${item.descricao || ''}</div>
+            ${tags.length ? `<div class="item-tags">${tags.map(t => `<span class="item-tag">${t}</span>`).join('')}</div>` : ''}
+            <div class="item-price">
+              <div>
+                <div class="price-label">Associado Sesc</div>
+                <div class="price-sesc">R$ ${sesc.toFixed(2).replace(".", ",")}</div>
+              </div>
+              ${desconto > 0 ? `<span class="price-pub">R$ ${pub.toFixed(2).replace(".", ",")}</span><span class="price-badge">-${desconto}%</span>` : ''}
+            </div>
+          </div>
+        </div>`;
       }
-
-      // Sincroniza quando o admin salvar em outra aba
-      window.addEventListener("storage", function (e) {
-        if (e.key === "sesc_menu") {
-          carregarDadosGlobal();
-          renderFiltros();
-          renderCardapio();
-          toast("Cardápio atualizado pelo painel admin!", "verde");
-        }
-      });
-
-      // Escuta também evento customizado (caso usado internamente)
-      window.addEventListener("dataAtualizada", function () {
-        carregarDadosGlobal();
-        renderFiltros();
-        renderCardapio();
-        toast("Dados atualizados!", "azul");
-      });
-
-      // Inicialização
-      function init() {
-        carregarDadosGlobal();
-        renderFiltros();
-        renderCardapio();
-        toast("Cardápio da lanchonete carregado!", "azul");
-        console.info(
-          "[Lanchonete] Integrado ao AppData. Itens:",
-          dadosLanchonete.length,
-        );
-      }
-
-      // Tema (usa a mesma função do script.js, mas garante compatibilidade)
-      function toggleTema() {
-        const html = document.documentElement;
-        const novo =
-          html.getAttribute("data-tema") === "claro" ? "escuro" : "claro";
-        html.setAttribute("data-tema", novo);
-        localStorage.setItem("sesc_tema", novo);
-        const svg = document.getElementById("icon-tema");
-        if (svg) {
-          svg.innerHTML =
-            novo === "escuro"
-              ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>'
-              : '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
-        }
-      }
-
+    
       function toast(msg, tipo = "azul") {
-        const toastsDiv = document.getElementById("toasts");
-        const toastEl = document.createElement("div");
-        toastEl.className = `toast toast-${tipo}`;
-        toastEl.innerHTML = `<span>${tipo === "verde" ? "✅" : "☕"}</span><span>${msg}</span>`;
-        toastsDiv.appendChild(toastEl);
-        setTimeout(() => {
-          toastEl.classList.add("fadeout");
-          setTimeout(() => toastEl.remove(), 300);
-        }, 3500);
+        const container = document.getElementById("toasts");
+        if (!container) return;
+        const el = document.createElement("div");
+        el.className = `toast toast-${tipo}`;
+        el.innerHTML = `<span>${tipo === "verde" ? "✅" : "☕"}</span><span>${msg}</span>`;
+        container.appendChild(el);
+        setTimeout(() => el.remove(), 4000);
       }
-
-      // Aplicar tema salvo
-      (function aplicarTemaSalvo() {
-        const salvo = localStorage.getItem("sesc_tema");
-        if (salvo === "escuro")
-          document.documentElement.setAttribute("data-tema", "escuro");
-        else document.documentElement.setAttribute("data-tema", "claro");
-      })();
-
-      init();
+    
+      window.onload = carregarLanchonete;
     </script>
   </body>
 </html>

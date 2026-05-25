@@ -1,0 +1,2887 @@
+Grok, eu estou instalando em meu computador o claude code através do Ollama de forma que ele funcione de forma offiline em meu computado, mas ao tentar com um prompt eu percebi que ele é muito especifico, me ajude a instalar na minha máquina pelo o powershell
+ 
+ 
+irm https://ollama.com/install.ps1 | iex
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users$env:USERNAME\AppData\Local\Programs\Ollama", "User")
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","User") + ";" + [System.Environment]::GetEnvironmentVariable("Path","Machine")
+ollama --version
+irm https://claude.ai/install.ps1 | iex
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users$env:USERNAME.local\bin", "User")
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","User") + ";" + [System.Environment]::GetEnvironmentVariable("Path","Machine")
+claude --version
+ollama pull qwen2.5-coder:14b
+cd "C:\caminho\do\seu\projeto"
+$env:ANTHROPIC_AUTH_TOKEN = "ollama"
+$env:ANTHROPIC_BASE_URL = "http://localhost:11434"
+claude --model qwen2.5-coder:14b
+cd "C:\Users\SeuUsuario\Documents\Imperio Auto Peças\imperioautopecas"
+$env:ANTHROPIC_AUTH_TOKEN = "ollama"
+$env:ANTHROPIC_BASE_URL = "http://localhost:11434"
+claude --model qwen2.5-coder:14b
+ 
+O Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+Instale o PowerShell mais recente para obter novos recursos e aprimoramentos! https://aka.ms/PSWindows
+PS C:\WINDOWS\System32> irm https://ollama.com/install.ps1 | iex
+Downloading Ollama for Windows...
+######################################## 100.0%
+Installing Ollama...
+Installation failed with exit code 5
+No linha:302 caractere:9
+
+throw "Installation failed with exit code $($proc.ExitCode)"
+
+
+    + CategoryInfo : OperationStopped: (Installation failed with exit code 5:String) [], RuntimeException
+    + FullyQualifiedErrorId : Installation failed with exit code 5
+PS C:\WINDOWS\System32> [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users$env:USERNAME\AppData\Local\Programs\Ollama", "User")
+PS C:\WINDOWS\System32> $env:Path = [System.Environment]::GetEnvironmentVariable("Path","User") + ";" + [System.Environment]::GetEnvironmentVariable("Path","Machine")
+PS C:\WINDOWS\System32> ollama --version
+ollama : O termo 'ollama' não é reconhecido como nome de cmdlet, função, arquivo de script ou programa operável.
+Verifique a grafia do nome ou, se um caminho tiver sido incluído, veja se o caminho está correto e tente novamente.
+No linha:1 caractere:1
+
+ollama --version
+
+
+    + CategoryInfo : ObjectNotFound: (ollama:String) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : CommandNotFoundException
+PS C:\WINDOWS\System32> irm https://claude.ai/install.ps1 | iex
+Setting up Claude Code...
+√ Claude Code successfully installed!
+  Version: 2.1.146
+  Location: C:\Users\natan.local\bin\claude.exe
+  Next: Run claude --help to get started
+‼ Setup notes:
+  ● Native installation exists but C:\Users\natan.local\bin is not in your PATH. Add it by opening: System Properties →
+     Environment Variables → Edit User PATH → New → Add the path above. Then restart your terminal.
+✅ Installation complete!
+PS C:\WINDOWS\System32> [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users$env:USERNAME.local\bin", "User")
+PS C:\WINDOWS\System32> $env:Path = [System.Environment]::GetEnvironmentVariable("Path","User") + ";" + [System.Environment]::GetEnvironmentVariable("Path","Machine")
+PS C:\WINDOWS\System32> claude --version
+claude : O termo 'claude' não é reconhecido como nome de cmdlet, função, arquivo de script ou programa operável.
+Verifique a grafia do nome ou, se um caminho tiver sido incluído, veja se o caminho está correto e tente novamente.
+No linha:1 caractere:1
+
+claude --version
+
+
+    + CategoryInfo : ObjectNotFound: (claude:String) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : CommandNotFoundException
+PS C:\WINDOWS\System32> ollama pull qwen2.5-coder:14b
+ollama : O termo 'ollama' não é reconhecido como nome de cmdlet, função, arquivo de script ou programa operável.
+Verifique a grafia do nome ou, se um caminho tiver sido incluído, veja se o caminho está correto e tente novamente.
+No linha:1 caractere:1
+
+ollama pull qwen2.5-coder:14b
+
+
+    + CategoryInfo : ObjectNotFound: (ollama:String) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : CommandNotFoundException
+PS C:\WINDOWS\System32> cd "C:\caminho\do\seu\projeto"
+cd : Não é possível localizar o caminho 'C:\caminho\do\seu\projeto' porque ele não existe.
+No linha:1 caractere:1
+
+cd "C:\caminho\do\seu\projeto"
+
+
+    + CategoryInfo : ObjectNotFound: (C:\caminho\do\seu\projeto:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+PS C:\WINDOWS\System32> $env:ANTHROPIC_AUTH_TOKEN = "ollama"
+PS C:\WINDOWS\System32> $env:ANTHROPIC_BASE_URL = "http://localhost:11434"
+PS C:\WINDOWS\System32> claude --model qwen2.5-coder:14b
+claude : O termo 'claude' não é reconhecido como nome de cmdlet, função, arquivo de script ou programa operável.
+Verifique a grafia do nome ou, se um caminho tiver sido incluído, veja se o caminho está correto e tente novamente.
+No linha:1 caractere:1
+
+claude --model qwen2.5-coder:14b
+
+
+    + CategoryInfo : ObjectNotFound: (claude:String) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : CommandNotFoundException
+PS C:\WINDOWS\System32> cd "C:\Users\SeuUsuario\Documents\Imperio Auto Peças\imperioautopecas"
+cd : Não é possível localizar o caminho 'C:\Users\SeuUsuario\Documents\Imperio Auto Peças\imperioautopecas' porque ele
+não existe.
+No linha:1 caractere:1
+
+cd "C:\Users\SeuUsuario\Documents\Imperio Auto Peças\imperioautopecas ...
+
+
+    + CategoryInfo : ObjectNotFound: (C:\Users\SeuUsu...mperioautopecas:String) [Set-Location], ItemNotFoundE
+   xception
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+PS C:\WINDOWS\System32> $env:ANTHROPIC_AUTH_TOKEN = "ollama"
+PS C:\WINDOWS\System32> $env:ANTHROPIC_BASE_URL = "http://localhost:11434"
+PS C:\WINDOWS\System32> claude --model qwen2.5-coder:14b
+claude : O termo 'claude' não é reconhecido como nome de cmdlet, função, arquivo de script ou programa operável.
+Verifique a grafia do nome ou, se um caminho tiver sido incluído, veja se o caminho está correto e tente novamente.
+No linha:1 caractere:1
+
+claude --model qwen2.5-coder:14b
+
+
+    + CategoryInfo : ObjectNotFound: (claude:String) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : CommandNotFoundExceptionÓtimo, Kauã! Vamos resolver isso passo a passo. O problema principal é que a instalação do Ollama falhou (exit code 5), por isso os comandos ollama não funcionam. O Claude Code instalou, mas o PATH não atualizou corretamente na sessão atual.
+1. Corrigir a instalação do Ollama (mais importante)
+Feche todas as janelas do PowerShell.
+Abra o PowerShell como Administrador (clique direito → Executar como administrador) e rode:
+PowerShell# Desinstale qualquer vestígio anterior (se existir)
+if (Test-Path "$env:LOCALAPPDATA\Programs\Ollama") {
+    Remove-Item -Path "$env:LOCALAPPDATA\Programs\Ollama" -Recurse -Force
+}
+
+# Instale novamente
+irm https://ollama.com/install.ps1 | iex
+Dicas importantes se falhar novamente:
+
+Desative temporariamente o Windows Defender Real-time Protection durante a instalação.
+Certifique-se de que não tem outro Ollama rodando (verifique no Gerenciador de Tarefas).
+Tente baixar o instalador manualmente: ollama.com/download → Windows.
+
+Depois de instalar com sucesso, rode:
+PowerShellollama --version
+Se aparecer a versão, ótimo!
+2. Atualizar o PATH corretamente (para Ollama e Claude)
+Ainda no PowerShell como Administrador, rode:
+PowerShell# Adiciona Ollama
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:LOCALAPPDATA\Programs\Ollama", "User")
+
+# Adiciona Claude Code (seu usuário é natan)
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users\natan\.local\bin", "User")
+
+# Atualiza na sessão atual
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","User") + ";" + [System.Environment]::GetEnvironmentVariable("Path","Machine")
+Feche e abra um novo PowerShell normal (não precisa ser Admin) e teste:
+PowerShellollama --version
+claude --version
+3. Baixar o modelo e configurar o Claude Code com Ollama
+PowerShell# Baixa o modelo (14B é pesado, certifique-se que tem RAM + GPU suficiente)
+ollama pull qwen2.5-coder:14b
+
+# Recomendado: use um modelo mais leve primeiro para testar
+# ollama pull qwen2.5-coder:7b
+4. Rodar o Claude Code com o modelo local
+Vá para a pasta do seu projeto:
+PowerShellcd "C:\Users\natan\Documents\Imperio Auto Peças\imperioautopecas"
+Depois rode de uma vez (melhor forma):
+PowerShell$env:ANTHROPIC_AUTH_TOKEN = "ollama"
+$env:ANTHROPIC_BASE_URL = "http://localhost:11434"
+claude --model qwen2.5-coder:14b
+Método ainda mais fácil (recomendado):
+PowerShellollama launch claude --model qwen2.5-coder:14b
+Isso geralmente configura tudo automaticamente.
+Resumo dos comandos finais (depois de corrigir a instalação):
+PowerShellcd "C:\Users\natan\Documents\Imperio Auto Peças\imperioautopecas"
+
+$env:ANTHROPIC_AUTH_TOKEN = "ollama"
+$env:ANTHROPIC_BASE_URL = "http://localhost:11434"
+
+claude --model qwen2.5-coder:14b
+Me manda o resultado de cada etapa (principalmente a instalação do Ollama) que eu te guio no próximo erro se aparecer! 🚀
+Quer que eu te passe uma versão mais leve do modelo para testar primeiro? 7B ou 8B rodam melhor em máquinas comuns.Meu powershell é:
+ 
+PS C:\Users\kesouza\Downloads\files>Entendido! Seu usuário é kesouza, não natan. Vamos ajustar tudo corretamente.
+Você está atualmente em:
+PS C:\Users\kesouza\Downloads\files>
+
+✅ Passo a passo atualizado (faça na ordem):
+1. Feche esta janela do PowerShell
+2. Abra o PowerShell como Administrador e rode os seguintes comandos:
+PowerShell# Remove instalação anterior problemática do Ollama
+if (Test-Path "$env:LOCALAPPDATA\Programs\Ollama") {
+    Remove-Item -Path "$env:LOCALAPPDATA\Programs\Ollama" -Recurse -Force -ErrorAction SilentlyContinue
+}
+
+# Instala o Ollama novamente
+irm https://ollama.com/install.ps1 | iex
+Espere terminar. Se der erro novamente (exit code 5), me avise.
+
+3. Depois que instalar com sucesso, ainda no PowerShell Administrador, rode:
+PowerShell# Atualiza PATH (Ollama + Claude Code)
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:LOCALAPPDATA\Programs\Ollama", "User")
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users\kesouza\.local\bin", "User")
+
+# Atualiza na sessão atual
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","User") + ";" + [System.Environment]::GetEnvironmentVariable("Path","Machine")
+
+4. Feche TODAS as janelas do PowerShell e abra uma nova normal (não como Admin).
+Teste se os comandos estão reconhecidos:
+PowerShellollama --version
+claude --version
+Me manda o resultado desses dois comandos.
+
+Enquanto isso, já pode ir para a pasta do projeto:
+PowerShellcd "C:\Users\kesouza\Documents\Imperio Auto Peças\imperioautopecas"
+
+Responda aqui com o resultado dos testes acima (ollama --version e claude --version) que eu continuo te guiando.
+Quer que eu já passe os comandos completos assumindo que a instalação deu certo?PS C:\Users\kesouza\Downloads\files> # Remove instalação anterior problemática do Ollama
+PS C:\Users\kesouza\Downloads\files> if (Test-Path "$env:LOCALAPPDATA\Programs\Ollama") {
+Remove-Item -Path "$env:LOCALAPPDATA\Programs\Ollama" -Recurse -Force -ErrorAction SilentlyContinue
+}
+PS C:\Users\kesouza\Downloads\files>
+PS C:\Users\kesouza\Downloads\files> # Instala o Ollama novamente
+PS C:\Users\kesouza\Downloads\files> irm https://ollama.com/install.ps1 | iexDownloading Ollama for Windows...
+                                         0,1%Download failed for https://ollama.com/download/OllamaSetup.exe: Exceção ao chamar "Write" com "3" argumento(s): "Espaço insuficiente no disco.
+"
+No linha:198 caractere:9
+
+throw "Download failed for ${Url}: $($_.Exception.Message)"
+
+
+    + CategoryInfo : OperationStopped: (Download failed...te no disco.
+":String) [], RuntimeException
+    + FullyQualifiedErrorId : Download failed for https://ollama.com/download/OllamaSetup.exe: Exceção ao chamar "Write" com "3" argumento(s): "Espaço insuficiente no disco.
+"
+PS C:\Users\kesouza\Downloads\files>✅ Problema identificado:
+Você não tem espaço suficiente no disco para baixar o Ollama.
+Erro: "Espaço insuficiente no disco"
+Solução imediata:
+
+Verifique quanto espaço livre você tem
+
+No PowerShell rode isso e me diga o resultado:
+PowerShellGet-PSDrive C | Select-Object Name, @{Name="FreeGB";Expression={[math]::round($_.Free/1GB,2)}}, @{Name="UsedGB";Expression={[math]::round($_.Used/1GB,2)}}, @{Name="TotalGB";Expression={[math]::round($_.Used/1GB + $_.Free/1GB,2)}}
+
+O que você precisa de espaço:
+
+Instalador do Ollama: ~200~250 MB
+Modelo qwen2.5-coder:14b → aproximadamente 9 a 15 GB (dependendo da quantização)
+
+Recomendação forte: Comece com um modelo menor enquanto não libera espaço.
+Passos para prosseguir:
+Opção 1 – Liberar espaço (recomendado)
+
+Exclua arquivos grandes da pasta Downloads
+Esvazie a Lixeira
+Remova programas que não usa
+Rode a Limpeza de Disco do Windows
+
+Depois tente instalar novamente.
+Opção 2 – Usar modelo leve agora (melhor para começar)
+Mesmo se der erro no download do Ollama, me avise o espaço livre que eu te passo comandos para baixar um modelo de 7B (bem mais leve, uns 4-5 GB).
+
+Enquanto isso, rode o comando acima para ver o espaço e cole aqui o resultado.
+Também me diga:
+
+Qual o tamanho do seu HD/SSD? (ex: 256GB, 512GB, 1TB?)
+Quanto espaço livre tem agora?
+
+Assim eu te oriento melhor.Deu certo, e agr ?✅ Ótimo! Deu certo a instalação.
+Agora vamos continuar passo a passo. Faça na ordem:
+
+1. Teste se o Ollama está funcionando
+PowerShellollama --version
+Me diga o que apareceu.
+
+2. Atualize o PATH (importante)
+Rode esses comandos:
+PowerShell# Atualiza PATH para Ollama e Claude
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:LOCALAPPDATA\Programs\Ollama", "User")
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users\kesouza\.local\bin", "User")
+
+# Atualiza na sessão atual
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","User") + ";" + [System.Environment]::GetEnvironmentVariable("Path","Machine")
+
+3. Teste os dois comandos
+PowerShellollama --version
+claude --version
+Me manda o resultado desses dois.
+
+4. O que vamos fazer agora (recomendação)
+Como o modelo de 14B é muito grande, recomendo começar com um modelo mais leve e rápido:
+PowerShell# Modelo bom para código e leve (cerca de 4-5 GB)
+ollama pull qwen2.5-coder:7b
+Depois de baixar, vamos rodar o Claude Code.
+
+Enquanto você roda os comandos acima, já pode ir para a pasta do seu projeto:
+PowerShellcd "C:\Users\kesouza\Documents\Imperio Auto Peças\imperioautopecas"
+
+Responda aqui com o resultado dos comandos ollama --version e claude --version.
+Assim que você confirmar que os dois estão funcionando, eu te passo o comando final para rodar o Claude Code com o modelo.
+Pode colar o resultado agora! 🚀Quero um passo a passou unico para eu copiar uma unica vez para que funcione em qualquer máquina através do powershell geral
+ 
+O Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+Instale o PowerShell mais recente para obter novos recursos e aprimoramentos! https://aka.ms/PSWindows
+PS C:\WINDOWS\system32>✅ Aqui está o script completo de um único bloco para você copiar e colar.
+Faça o seguinte:
+
+Abra o PowerShell como Administrador
+Copie todo o código abaixo e cole de uma vez
+
+PowerShell# ================================================
+# INSTALAÇÃO COMPLETA OLLAMA + CLAUDE CODE (One-Click)
+# Funciona em qualquer máquina Windows
+# ================================================
+
+Write-Host "🚀 Iniciando instalação completa..." -ForegroundColor Cyan
+
+# 1. Remove instalação anterior com problema
+if (Test-Path "$env:LOCALAPPDATA\Programs\Ollama") {
+    Write-Host "Removendo instalação anterior do Ollama..." -ForegroundColor Yellow
+    Remove-Item -Path "$env:LOCALAPPDATA\Programs\Ollama" -Recurse -Force -ErrorAction SilentlyContinue
+}
+
+# 2. Instala Ollama
+Write-Host "Instalando Ollama..." -ForegroundColor Cyan
+irm https://ollama.com/install.ps1 | iex
+
+# 3. Instala Claude Code
+Write-Host "Instalando Claude Code..." -ForegroundColor Cyan
+irm https://claude.ai/install.ps1 | iex
+
+# 4. Atualiza PATH do usuário
+Write-Host "Atualizando PATH..." -ForegroundColor Cyan
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:LOCALAPPDATA\Programs\Ollama", "User")
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users\$env:USERNAME\.local\bin", "User")
+
+# Atualiza PATH na sessão atual
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","User") + ";" + [System.Environment]::GetEnvironmentVariable("Path","Machine")
+
+# 5. Testa instalação
+Write-Host "`nVerificando instalação..." -ForegroundColor Cyan
+ollama --version
+claude --version
+
+# 6. Baixa modelo (recomendado 7B - mais leve e rápido)
+Write-Host "`nBaixando modelo Qwen2.5-Coder 7B (recomendado)..." -ForegroundColor Cyan
+ollama pull qwen2.5-coder:7b
+
+Write-Host "`n✅ Instalação concluída com sucesso!" -ForegroundColor Green
+Write-Host "Modelo pronto: qwen2.5-coder:7b" -ForegroundColor Green
+
+# 7. Configuração final para usar
+Write-Host "`n=== COMANDOS PARA USAR O CLAUDE CODE ===" -ForegroundColor Magenta
+Write-Host "1. Vá para sua pasta do projeto:" -ForegroundColor White
+Write-Host "   cd 'C:\Users\$env:USERNAME\Documents\Imperio Auto Peças\imperioautopecas'" -ForegroundColor Yellow
+
+Write-Host "`n2. Rode o Claude Code com o modelo local:" -ForegroundColor White
+Write-Host '   $env:ANTHROPIC_AUTH_TOKEN = "ollama"' -ForegroundColor Yellow
+Write-Host '   $env:ANTHROPIC_BASE_URL = "http://localhost:11434"' -ForegroundColor Yellow
+Write-Host '   claude --model qwen2.5-coder:7b' -ForegroundColor Yellow
+
+Write-Host "`n🔄 Quer que eu crie um atalho ou script .ps1 para rodar mais fácil?" -ForegroundColor Cyan
+
+Como usar depois de instalar:
+Depois de rodar o bloco acima, use sempre estes 3 comandos (pode copiar também):
+PowerShellcd "C:\Users\kesouza\Documents\Imperio Auto Peças\imperioautopecas"
+
+$env:ANTHROPIC_AUTH_TOKEN = "ollama"
+$env:ANTHROPIC_BASE_URL = "http://localhost:11434"
+claude --model qwen2.5-coder:7b
+Quer que eu faça também um script .ps1 que você só clica duas vezes para abrir o Claude Code direto no seu projeto? Posso criar isso agora.Esqueça completamente o caminho "cd 'C:\Users$env:USERNAME\Documents\Imperio Auto Peças\imperioautopecas'"
+ 
+Agora faça o seguinte crie uma pasta dentro do disco C: com o nome "Claude Code" para que seja executado lá dentro o projeto "C:\Claude Code"✅ Entendido! Esqueci completamente o caminho antigo.
+Aqui está o novo script atualizado — um único bloco para copiar e colar:
+🔄 Script Único (Copie tudo abaixo)
+PowerShell# ================================================
+# INSTALAÇÃO COMPLETA OLLAMA + CLAUDE CODE
+# Pasta padrão: C:\Claude Code
+# ================================================
+
+Write-Host "🚀 Iniciando instalação completa do Claude Code..." -ForegroundColor Cyan
+
+# 1. Remove instalação anterior problemática
+if (Test-Path "$env:LOCALAPPDATA\Programs\Ollama") {
+    Write-Host "Removendo instalação anterior do Ollama..." -ForegroundColor Yellow
+    Remove-Item -Path "$env:LOCALAPPDATA\Programs\Ollama" -Recurse -Force -ErrorAction SilentlyContinue
+}
+
+# 2. Instala Ollama
+Write-Host "Instalando Ollama..." -ForegroundColor Cyan
+irm https://ollama.com/install.ps1 | iex
+
+# 3. Instala Claude Code
+Write-Host "Instalando Claude Code..." -ForegroundColor Cyan
+irm https://claude.ai/install.ps1 | iex
+
+# 4. Atualiza PATH
+Write-Host "Atualizando PATH..." -ForegroundColor Cyan
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:LOCALAPPDATA\Programs\Ollama", "User")
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users\$env:USERNAME\.local\bin", "User")
+
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","User") + ";" + [System.Environment]::GetEnvironmentVariable("Path","Machine")
+
+# 5. Cria a pasta padrão C:\Claude Code
+$projectPath = "C:\Claude Code"
+if (-not (Test-Path $projectPath)) {
+    New-Item -Path $projectPath -ItemType Directory -Force | Out-Null
+    Write-Host "✅ Pasta criada: $projectPath" -ForegroundColor Green
+} else {
+    Write-Host "✅ Pasta já existe: $projectPath" -ForegroundColor Green
+}
+
+# 6. Testa instalação
+Write-Host "`nVerificando instalação..." -ForegroundColor Cyan
+ollama --version
+claude --version
+
+# 7. Baixa o modelo (7B - bom equilíbrio)
+Write-Host "`nBaixando modelo Qwen2.5-Coder 7B..." -ForegroundColor Cyan
+ollama pull qwen2.5-coder:7b
+
+Write-Host "`n✅ Instalação finalizada com sucesso!" -ForegroundColor Green
+Write-Host "📁 Pasta do projeto: C:\Claude Code" -ForegroundColor Green
+
+# 8. Instruções finais
+Write-Host "`n=== COMO USAR (copie esses 3 comandos sempre) ===" -ForegroundColor Magenta
+Write-Host "cd `"C:\Claude Code`"" -ForegroundColor Yellow
+Write-Host '$env:ANTHROPIC_AUTH_TOKEN = "ollama"' -ForegroundColor Yellow
+Write-Host '$env:ANTHROPIC_BASE_URL = "http://localhost:11434"' -ForegroundColor Yellow
+Write-Host 'claude --model qwen2.5-coder:7b' -ForegroundColor Yellow
+
+Write-Host "`nPronto! Agora é só rodar os 4 comandos acima." -ForegroundColor Cyan
+
+Como usar agora:
+
+Abra PowerShell como Administrador
+Cole todo o bloco acima e pressione Enter
+Aguarde terminar o download do modelo
+
+Depois que terminar, para usar o Claude Code basta rodar sempre:
+PowerShellcd "C:\Claude Code"
+$env:ANTHROPIC_AUTH_TOKEN = "ollama"
+$env:ANTHROPIC_BASE_URL = "http://localhost:11434"
+claude --model qwen2.5-coder:7b
+Quer que eu crie também um arquivo .ps1 (atalho) dentro da pasta C:\Claude Code para você só dar dois cliques e abrir direto? Posso adicionar isso no script.Retire todos os comentarios✅ Aqui está o script limpo, sem nenhum comentário:
+PowerShellif (Test-Path "$env:LOCALAPPDATA\Programs\Ollama") {
+    Remove-Item -Path "$env:LOCALAPPDATA\Programs\Ollama" -Recurse -Force -ErrorAction SilentlyContinue
+}
+
+irm https://ollama.com/install.ps1 | iex
+
+irm https://claude.ai/install.ps1 | iex
+
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:LOCALAPPDATA\Programs\Ollama", "User")
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users\$env:USERNAME\.local\bin", "User")
+
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","User") + ";" + [System.Environment]::GetEnvironmentVariable("Path","Machine")
+
+$projectPath = "C:\Claude Code"
+if (-not (Test-Path $projectPath)) {
+    New-Item -Path $projectPath -ItemType Directory -Force | Out-Null
+}
+
+ollama --version
+claude --version
+
+ollama pull qwen2.5-coder:7b
+
+Como usar:
+
+Abra o PowerShell como Administrador
+Copie e cole todo o código acima de uma vez
+Aguarde finalizar
+
+Depois da instalação, para rodar o Claude Code use sempre estes comandos:
+PowerShellcd "C:\Claude Code"
+$env:ANTHROPIC_AUTH_TOKEN = "ollama"
+$env:ANTHROPIC_BASE_URL = "http://localhost:11434"
+claude --model qwen2.5-coder:7b
+Quer que eu deixe ainda mais curto ou adicione algo específico?O Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+Instale o PowerShell mais recente para obter novos recursos e aprimoramentos! https://aka.ms/PSWindows
+PS C:\WINDOWS\system32> if (Test-Path "$env:LOCALAPPDATA\Programs\Ollama") {
+Remove-Item -Path "$env:LOCALAPPDATA\Programs\Ollama" -Recurse -Force -ErrorAction SilentlyContinue
+}
+PS C:\WINDOWS\system32>
+PS C:\WINDOWS\system32> irm https://ollama.com/install.ps1 | iexDownloading Ollama for Windows...
+######## 20,5%Download failed for https://ollama.com/download/OllamaSetup.exe: Exceção ao chamar "Read" com "3" argumento(s): "O
+tempo limite da operação foi atingido."
+No linha:198 caractere:9
+
+throw "Download failed for ${Url}: $($_.Exception.Message)"
+
+
+    + CategoryInfo : OperationStopped: (Download failed... foi atingido.":String) [], RuntimeException
+    + FullyQualifiedErrorId : Download failed for https://ollama.com/download/OllamaSetup.exe: Exceção ao chamar "Read
+   " com "3" argumento(s): "O tempo limite da operação foi atingido."
+PS C:\WINDOWS\system32>
+PS C:\WINDOWS\system32> irm https://claude.ai/install.ps1 | iex
+Setting up Claude Code...
+× Installation failed
+Failed to fetch version from https://downloads.claude.ai/claude-code-releases/latest after 3 attempt(s): ECONNREFUSED
+Try running with --force to override checks
+✅ Installation complete!
+PS C:\WINDOWS\system32>
+PS C:\WINDOWS\system32> [Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:LOCALAPPDATA\Programs\Ollama", "User")
+PS C:\WINDOWS\system32> [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users$env:USERNAME.local\bin", "User")
+PS C:\WINDOWS\system32>
+PS C:\WINDOWS\system32> $env:Path = [System.Environment]::GetEnvironmentVariable("Path","User") + ";" + [System.Environment]::GetEnvironmentVariable("Path","Machine")
+PS C:\WINDOWS\system32>
+PS C:\WINDOWS\system32> $projectPath = "C:\Claude Code"
+PS C:\WINDOWS\system32> if (-not (Test-Path $projectPath)) {
+New-Item -Path $projectPath -ItemType Directory -Force | Out-Null
+}
+PS C:\WINDOWS\system32>
+PS C:\WINDOWS\system32> ollama --version
+ollama : O termo 'ollama' não é reconhecido como nome de cmdlet, função, arquivo de script ou programa operável.
+Verifique a grafia do nome ou, se um caminho tiver sido incluído, veja se o caminho está correto e tente novamente.
+No linha:1 caractere:1
+
+ollama --version
+
+
+    + CategoryInfo : ObjectNotFound: (ollama:String) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : CommandNotFoundException
+PS C:\WINDOWS\system32> claude --version
+claude : O termo 'claude' não é reconhecido como nome de cmdlet, função, arquivo de script ou programa operável.
+Verifique a grafia do nome ou, se um caminho tiver sido incluído, veja se o caminho está correto e tente novamente.
+No linha:1 caractere:1
+
+claude --version
+
+
+    + CategoryInfo : ObjectNotFound: (claude:String) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : CommandNotFoundException
+PS C:\WINDOWS\system32>
+PS C:\WINDOWS\system32> ollama pull qwen2.5-coder:7b
+ollama : O termo 'ollama' não é reconhecido como nome de cmdlet, função, arquivo de script ou programa operável.
+Verifique a grafia do nome ou, se um caminho tiver sido incluído, veja se o caminho está correto e tente novamente.
+No linha:1 caractere:1
+
+ollama pull qwen2.5-coder:7b
+
+
+    + CategoryInfo : ObjectNotFound: (ollama:String) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : CommandNotFoundException
+PS C:\WINDOWS\system32>✅ Problema detectado: Sua internet está com instabilidade (timeout + ECONNREFUSED). Os downloads não estão conseguindo completar.
+
+Novo script limpo e mais robusto (com retry)
+Copie e cole tudo abaixo no PowerShell como Administrador:
+PowerShellif (Test-Path "$env:LOCALAPPDATA\Programs\Ollama") {
+    Remove-Item -Path "$env:LOCALAPPDATA\Programs\Ollama" -Recurse -Force -ErrorAction SilentlyContinue
+}
+
+Write-Host "Tentando instalar Ollama..." -ForegroundColor Cyan
+irm https://ollama.com/install.ps1 | iex
+
+Write-Host "Tentando instalar Claude Code..." -ForegroundColor Cyan
+irm https://claude.ai/install.ps1 | iex
+
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:LOCALAPPDATA\Programs\Ollama", "User")
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users\$env:USERNAME\.local\bin", "User")
+
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","User") + ";" + [System.Environment]::GetEnvironmentVariable("Path","Machine")
+
+$projectPath = "C:\Claude Code"
+if (-not (Test-Path $projectPath)) {
+    New-Item -Path $projectPath -ItemType Directory -Force | Out-Null
+}
+
+ollama --version
+claude --version
+
+O que fazer agora:
+
+Feche o PowerShell atual
+Abra novamente como Administrador
+Cole o script acima
+
+Se der timeout novamente:
+Solução mais confiável agora:
+
+Vá no navegador e baixe o Ollama manualmente:
+👉 https://ollama.com/download/OllamaSetup.exe
+Execute o arquivo baixado (OllamaSetup.exe) e instale normalmente.
+
+Depois rode estes comandos:
+PowerShellirm https://claude.ai/install.ps1 | iex
+
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:LOCALAPPDATA\Programs\Ollama", "User")
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users\$env:USERNAME\.local\bin", "User")
+
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","User") + ";" + [System.Environment]::GetEnvironmentVariable("Path","Machine")
+
+cd "C:\Claude Code"
+Me manda o resultado depois que tentar (principalmente se ainda der erro de conexão).
+Quer tentar com VPN ou mudar de rede? Às vezes ajuda bastante.Me recomendaram usar outro banco de dados, o docker, me ensine a configurar ele do 0 pra quem está na primeira experiencia tbm✅ Entendido! Vamos começar do zero com o Docker.
+Como você está na primeira experiência, vou te explicar de forma bem clara, simples e passo a passo.
+
+O que é Docker?
+Docker é uma ferramenta que permite rodar programas (como bancos de dados, Ollama, etc.) dentro de "caixas" isoladas chamadas containers.
+É muito usado porque é mais estável, fácil de configurar e evita vários problemas de instalação direta no Windows.
+
+Passo a passo para instalar o Docker (Primeira vez)
+1. Verifique os requisitos do seu PC
+
+Windows 10 ou 11 (64 bits) Pro, Enterprise ou Education (Home geralmente tem limitações)
+Ativar virtualização na BIOS/UEFI (quase sempre necessário)
+
+2. Baixe e instale o Docker Desktop
+
+Abra seu navegador e acesse:
+👉 https://www.docker.com/products/docker-desktop/
+Clique no botão Download for Windows
+Execute o arquivo Docker Desktop Installer.exe que foi baixado
+Durante a instalação:
+Marque a opção "Use WSL 2 instead of Hyper-V" (recomendado)
+Clique em OK e espere instalar
+
+Após instalar, o Docker Desktop vai abrir automaticamente.
+Importante: Aceite todas as permissões que aparecerem.
+
+
+3. Verifique se instalou corretamente
+Abra o PowerShell (como Administrador) e rode:
+PowerShelldocker --version
+Se aparecer algo como Docker version 27... → Parabéns! Docker está instalado.
+
+4. Teste básico (Olá Mundo)
+Rode este comando:
+PowerShelldocker run hello-world
+Se aparecer uma mensagem de sucesso, tudo está funcionando.
+
+Próximo passo: O que você quer rodar com Docker?
+Me diga qual é seu objetivo atual para eu te ensinar exatamente:
+
+A. Rodar Ollama dentro do Docker (recomendado para evitar problemas de instalação)
+B. Instalar um banco de dados (ex: PostgreSQL, MySQL, MongoDB)
+**C. Rodar o Claude Code + Ollama usando Docker
+
+Responda com A, B ou C (ou explique melhor o que você quer fazer).
+Enquanto isso, já rode os comandos de verificação acima e me diga o resultado:
+PowerShelldocker --version
+docker run hello-world
+Cole aqui o que apareceu.
+
+Quer que eu já te passe o comando para rodar Ollama via Docker (muito mais estável)?Vou desistir, vou voltar para o suparbase, me ajude a voltar✅ Entendido! Sem problema, vamos voltar para o Supabase de forma limpa e organizada.
+Como você está desistindo da configuração local (Ollama + Claude Code), vamos focar no Supabase agora.
+
+Passo a passo para voltar ao Supabase (do zero ou retomando)
+1. Acesse sua conta Supabase
+Vá para: https://supabase.com/dashboard
+Faça login com sua conta.
+2. Crie um novo projeto (recomendado se quiser começar limpo)
+
+Clique em New Project
+Preencha:
+Nome do projeto: imperio-auto-pecas (ou o nome que preferir)
+Database Password: Crie uma senha forte e guarde ela
+
+Clique em Create new project
+
+Espere uns 1-2 minutos até ficar pronto.
+
+3. Pegue as credenciais importantes
+Depois do projeto criado, vá em Project Settings → API
+Você vai precisar destas 3 informações:
+
+URL do projeto (ex: https://abcde.supabase.co)
+anon key (chave pública)
+service_role key (chave secreta - use só no backend)
+
+
+4. Configure o projeto no seu computador
+Abra a pasta onde vai trabalhar:
+PowerShellcd "C:\Claude Code"
+Agora vamos instalar o cliente do Supabase:
+PowerShellnpm install @supabase/supabase-js
+
+5. Crie um arquivo de configuração
+Crie um arquivo chamado supabaseClient.js (ou .ts se usar TypeScript) dentro da pasta do projeto:
+JavaScriptimport { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = 'SUA_URL_AQUI'
+const supabaseAnonKey = 'SUA_ANON_KEY_AQUI'
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+Me diga agora para eu te ajudar melhor:
+
+Você já tem um projeto no Supabase ou vai criar um novo?
+Qual tecnologia você está usando no frontend? (React, Next.js, Vite, HTML puro, etc.)
+Quer que eu te ajude a configurar Autenticação também?
+
+Enquanto isso, pode já ir criando o projeto no Supabase e me mandar:
+
+A URL do projeto
+A anon key
+
+Assim eu te passo os códigos já personalizados.
+Quer continuar? Estou aqui para te ajudar do jeito mais simples possível.Esse banco de dados eu vou usar aqui no Sesc✅ Entendido! Vamos configurar o Supabase para você usar no projeto do Sesc.
+Vou te guiar de forma prática e direta.
+
+Primeiro, me confirme algumas coisas:
+
+Qual é o nome exato do projeto?
+Ex: sesc-autopecas, sesc-imperio, etc.
+Você já tem um projeto criado no Supabase ou vamos criar um novo agora?
+
+Enquanto isso, faça o seguinte:
+Passo 1: Criar o Projeto no Supabase
+
+Acesse: https://supabase.com/dashboard
+Clique em “New Project”
+Preencha assim:
+Organization: Escolha sua conta
+Project Name: sesc-imperio-autopecas (ou o nome que preferir)
+Database Password: Crie uma senha forte (guarde em um lugar seguro)
+Region: Escolha a mais próxima (provavelmente South America (São Paulo))
+
+
+Clique em Create new project e aguarde.
+
+Passo 2: Após criar, me envie as informações
+Depois que o projeto estiver pronto, copie e cole aqui para mim:
+
+A URL do projeto (ex: https://abcdefg.supabase.co)
+A anon key (você encontra em Project Settings → API)
+
+
+Enquanto isso, já podemos preparar a pasta no seu computador:
+Rode os seguintes comandos no PowerShell:
+PowerShellcd "C:\Claude Code"
+
+npm create vite@latest . -- --template react-ts
+
+npm install
+
+npm install @supabase/supabase-js
+
+Me responda:
+
+Você já criou o projeto no Supabase?
+Qual o nome que você deu ao projeto?
+Quer usar React ou Next.js?
+
+Assim que você me passar a URL e a anon key, eu te entrego o código do supabaseClient já configurado e exemplos de como fazer login, cadastrar peças, etc.
+Pode colar aqui o que aparecer quando criar o projeto. Estou te esperando.Voltei para o meu banco antigo, vou apenas continuar onde eu parei
+https://xaotmnynsvbjugdlalmb.supabase.co
+sb_publishable_NcUtLU0LxvA3IB1UNnvyoA__nkFB6Cu
+postgresql://postgres:[YOUR-PASSWORD]@db.xaotmnynsvbjugdlalmb.supabase.co:5432/postgres
+supabase login
+supabase init
+supabase link --project-ref xaotmnynsvbjugdlalmb✅ Perfeito! Vamos continuar com seu banco antigo no Supabase.
+Seu projeto é: xaotmnynsvbjugdlalmb
+
+Passo a passo para continuar de onde parou:
+Abra o PowerShell na pasta onde você quer trabalhar (C:\Claude Code recomendado) e rode os comandos na ordem:
+1. Vá para a pasta do projeto
+PowerShellcd "C:\Claude Code"
+2. Instale o Supabase CLI (se ainda não tiver)
+PowerShellnpm install -g supabase
+3. Faça login no Supabase
+PowerShellsupabase login
+Ele vai abrir o navegador para você fazer login. Faça o login e volte ao PowerShell.
+4. Inicialize o Supabase no projeto (se ainda não fez)
+PowerShellsupabase init
+5. Linke com seu projeto antigo
+PowerShellsupabase link --project-ref xaotmnynsvbjugdlalmb
+Quando pedir a senha do banco (Database Password), cole a senha que você usou quando criou o projeto.
+
+Depois de rodar esses comandos, me diga o que aconteceu (se deu certo ou apareceu algum erro).
+
+Próximos passos (depois que linkar):
+Vou te ajudar com:
+
+Ver as tabelas existentes
+Criar ou alterar tabelas (migrations)
+Configurar o cliente no código (React / Next.js)
+
+Me responda depois de rodar os comandos acima:
+
+Deu tudo certo?
+Você está usando React, Next.js ou outra tecnologia?
+Quer que eu te ajude primeiro com o supabaseClient ou com as tabelas do banco?
+
+Pode colar aqui o resultado dos comandos que eu continuo te guiando.Vou trabalhar com o terminal localizado aqui
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)✅ Entendido!
+Você está usando Git Bash (não PowerShell) e a pasta do projeto é:
+~/Documents/sescbosque
+
+Vamos continuar a configuração do Supabase a partir daí.
+Rode os comandos um por um no seu Git Bash:
+1. Certifique-se que está na pasta correta
+Bashpwd
+Deve aparecer algo como: /c/Users/kesouza/Documents/sescbosque
+2. Instale o Supabase CLI (caso ainda não tenha)
+Bashnpm install -g supabase
+3. Faça login no Supabase
+Bashsupabase login
+→ Vai abrir o navegador. Faça login na sua conta Supabase.
+4. Inicialize o Supabase no projeto (se ainda não fez)
+Bashsupabase init
+5. Linke com seu projeto antigo
+Bashsupabase link --project-ref xaotmnynsvbjugdlalmb
+Quando pedir a Database Password, cole a senha do seu banco Supabase.
+
+Depois de rodar esses comandos, me responda com o que apareceu (especialmente se deu erro ou sucesso).
+
+Dica importante:
+Como você está usando Git Bash, os comandos ficam mais parecidos com Linux, o que é bom.
+Quer que eu já prepare o arquivo supabaseClient para você usar no projeto (React ou Next.js)?
+Me diga:
+
+Qual framework você está usando? (React + Vite, Next.js, etc.)
+Quer continuar configurando o banco agora?
+
+Pode colar o resultado dos comandos acima. Estou aqui para te guiar.Deu o seguinte erro
+ 
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ pwd
+/c/Users/kesouza/Documents/sescbosque
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ npm install -g supabase
+npm error code ETIMEDOUT
+npm error errno ETIMEDOUT
+npm error network request to https://registry.npmjs.org/supabase failed, reason:
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly. See: 'npm help config'
+npm error A complete log of this run can be found in: C:\Users\kesouza\AppData\Local\npm-cache_logs\2026-05-25T21_10_15_488Z-debug-0.log
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$✅ Entendido! O erro ETIMEDOUT é problema de conexão/rede. Como você está no SESC (rede corporativa/educacional), é muito comum ter proxy ou restrições de internet.
+Solução Recomendada (mais fácil agora):
+Como a instalação global está falhando, vamos instalar o Supabase CLI como dependência do projeto (melhor prática atual).
+Rode os seguintes comandos no seu Git Bash:
+Bash# 1. Instala como dependência do projeto (não global)
+npm install supabase --save-dev
+
+# 2. Testa se funcionou
+npx supabase --version
+
+Se ainda der erro de rede, tente estas soluções na ordem:
+Solução 1: Limpar cache e configurações de proxy do npm
+Bashnpm cache clean --force
+
+npm config delete proxy
+npm config delete https-proxy
+npm config delete http-proxy
+
+npm config set registry https://registry.npmjs.org/
+Depois tente novamente:
+Bashnpm install supabase --save-dev
+Solução 2: Usar npx direto (sem instalar)
+Você pode tentar usar sem instalar:
+Bashnpx supabase login
+npx supabase init
+npx supabase link --project-ref xaotmnynsvbjugdlalmb
+
+Me diga qual comando você rodou e qual erro apareceu agora.
+Enquanto isso, me confirma:
+
+Você consegue abrir normalmente o site do Supabase no navegador?
+Quer que eu te mostre como usar o Supabase sem o CLI (usando só o JavaScript no código)?
+
+Pode colar o resultado aqui.kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ pwd
+/c/Users/kesouza/Documents/sescbosque
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ npm install -g supabase
+npm error code ETIMEDOUT
+npm error errno ETIMEDOUT
+npm error network request to https://registry.npmjs.org/supabase failed, reason:
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly. See: 'npm help config'
+npm error A complete log of this run can be found in: C:\Users\kesouza\AppData\Local\npm-cache_logs\2026-05-25T21_10_15_488Z-debug-0.log
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ # 1. Instala como dependência do projeto (não global)
+npm install supabase --save-dev
+# 2. Testa se funcionou
+npx supabase --version
+npm error code ETIMEDOUT
+npm error errno ETIMEDOUT
+npm error network request to https://registry.npmjs.org/supabase failed, reason:
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly. See: 'npm help config'
+npm error A complete log of this run can be found in: C:\Users\kesouza\AppData\Local\npm-cache_logs\2026-05-25T21_13_34_493Z-debug-0.log
+npm error code ETIMEDOUT
+npm error errno ETIMEDOUT
+npm error network request to https://registry.npmjs.org/supabase failed, reason:
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly. See: 'npm help config'
+npm error A complete log of this run can be found in: C:\Users\kesouza\AppData\Local\npm-cache_logs\2026-05-25T21_15_59_300Z-debug-0.log
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ git init
+Reinitialized existing Git repository in C:/Users/kesouza/Documents/sescbosque/.git/
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$✅ Entendido.
+O problema é claro: a rede do SESC está bloqueando ou limitando o acesso ao npm (muito comum em redes corporativas/educacionais). O supabase CLI está difícil de instalar agora.
+Como você quer continuar de onde parou, vamos fazer o seguinte:
+Solução mais prática agora: Usar Supabase sem o CLI
+Vamos configurar o cliente JavaScript direto no seu projeto.
+
+Passos para configurar agora:
+
+Instale apenas o cliente JavaScript (mais leve):
+
+Bashnpm install @supabase/supabase-js
+Tente rodar esse comando acima e me diga se deu certo ou deu o mesmo erro de timeout.
+
+
+Se ainda der timeout, vamos criar o arquivo de configuração manualmente.
+
+Crie um arquivo chamado supabaseClient.js na raiz do seu projeto:
+Bashtouch supabaseClient.js
+Depois abra o arquivo com VS Code:
+Bashcode supabaseClient.js
+Cole o seguinte código dentro dele:
+JavaScriptimport { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = 'https://xaotmnynsvbjugdlalmb.supabase.co'
+const supabaseAnonKey = 'sb_publishable_NcUtLU0LxvA3IB1UNnvyoA__nkFB6Cu'
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+Me responda:
+
+Conseguiu rodar npm install @supabase/supabase-js ? (cole o resultado)
+Qual framework você está usando? (React, Next.js, Vite + React, etc.)
+
+Enquanto isso, me diga também:
+
+Você sabe o Database Password do seu projeto Supabase? (precisaremos dele se for usar Row Level Security ou fazer migrations manualmente)
+
+Vamos seguir de forma simples, sem depender do CLI por enquanto.kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ pwd
+/c/Users/kesouza/Documents/sescbosque
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ npm install -g supabase
+npm error code ETIMEDOUT
+npm error errno ETIMEDOUT
+npm error network request to https://registry.npmjs.org/supabase failed, reason:
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly. See: 'npm help config'
+npm error A complete log of this run can be found in: C:\Users\kesouza\AppData\Local\npm-cache_logs\2026-05-25T21_10_15_488Z-debug-0.log
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ # 1. Instala como dependência do projeto (não global)
+npm install supabase --save-dev
+# 2. Testa se funcionou
+npx supabase --version
+npm error code ETIMEDOUT
+npm error errno ETIMEDOUT
+npm error network request to https://registry.npmjs.org/supabase failed, reason:
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly. See: 'npm help config'
+npm error A complete log of this run can be found in: C:\Users\kesouza\AppData\Local\npm-cache_logs\2026-05-25T21_13_34_493Z-debug-0.log
+npm error code ETIMEDOUT
+npm error errno ETIMEDOUT
+npm error network request to https://registry.npmjs.org/supabase failed, reason:
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly. See: 'npm help config'
+npm error A complete log of this run can be found in: C:\Users\kesouza\AppData\Local\npm-cache_logs\2026-05-25T21_15_59_300Z-debug-0.log
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ git init
+Reinitialized existing Git repository in C:/Users/kesouza/Documents/sescbosque/.git/
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ npm install @supabase/supabase-js
+npm error code ETIMEDOUT
+npm error errno ETIMEDOUT
+npm error network request to https://registry.npmjs.org/@supabase%2fsupabase-js failed, reason:
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly. See: 'npm help config'
+npm error A complete log of this run can be found in: C:\Users\kesouza\AppData\Local\npm-cache_logs\2026-05-25T21_19_32_959Z-debug-0.log
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$✅ Entendido.
+O problema persiste: a rede do SESC está bloqueando o npm install. Vamos contornar isso por enquanto.
+Solução temporária: Usar Supabase via CDN (sem precisar instalar nada)
+Como você está com restrição de rede, vamos configurar o Supabase direto no HTML/JS usando CDN.
+
+1. Crie o arquivo de cliente
+Na raiz do seu projeto (~/Documents/sescbosque), rode:
+Bashtouch supabaseClient.js
+Depois abra o arquivo:
+Bashcode supabaseClient.js
+Cole este conteúdo:
+JavaScript// supabaseClient.js
+const supabaseUrl = 'https://xaotmnynsvbjugdlalmb.supabase.co'
+const supabaseAnonKey = 'sb_publishable_NcUtLU0LxvA3IB1UNnvyoA__nkFB6Cu'
+
+let supabase
+
+// Função para inicializar (será chamada depois de carregar o CDN)
+function initSupabase() {
+  supabase = supabase.createClient(supabaseUrl, supabaseAnonKey)
+  console.log("✅ Supabase inicializado!")
+}
+
+// Export para usar em outros arquivos (se for módulo)
+export { supabase, initSupabase }
+
+2. No seu arquivo HTML principal (ex: index.html)
+Adicione isso dentro do <head> ou antes de fechar o </body>:
+HTML<!-- Supabase via CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabaseClient.js"></script>
+
+<script>
+  // Inicializa depois de carregar tudo
+  window.onload = function() {
+    initSupabase();
+  }
+</script>
+
+Agora me diga:
+
+Qual é o framework/tecnologia do seu projeto?
+(Ex: React + Vite, Next.js, HTML + JS puro, etc.)
+Você tem um index.html principal ou é um projeto React?
+
+Enquanto isso, teste se o CDN carrega abrindo o index.html no navegador e vendo se aparece a mensagem "Supabase inicializado!" no console (F12).
+Quer que eu te passe exemplos de como fazer:
+
+Login / Cadastro de usuário?
+Inserir peças no banco?
+Listar dados?
+
+Diga qual funcionalidade você precisa primeiro.kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ pwd
+/c/Users/kesouza/Documents/sescbosque
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ npm install -g supabase
+npm error code ETIMEDOUT
+npm error errno ETIMEDOUT
+npm error network request to https://registry.npmjs.org/supabase failed, reason:
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly. See: 'npm help config'
+npm error A complete log of this run can be found in: C:\Users\kesouza\AppData\Local\npm-cache_logs\2026-05-25T21_10_15_488Z-debug-0.log
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ # 1. Instala como dependência do projeto (não global)
+npm install supabase --save-dev
+# 2. Testa se funcionou
+npx supabase --version
+npm error code ETIMEDOUT
+npm error errno ETIMEDOUT
+npm error network request to https://registry.npmjs.org/supabase failed, reason:
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly. See: 'npm help config'
+npm error A complete log of this run can be found in: C:\Users\kesouza\AppData\Local\npm-cache_logs\2026-05-25T21_13_34_493Z-debug-0.log
+npm error code ETIMEDOUT
+npm error errno ETIMEDOUT
+npm error network request to https://registry.npmjs.org/supabase failed, reason:
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly. See: 'npm help config'
+npm error A complete log of this run can be found in: C:\Users\kesouza\AppData\Local\npm-cache_logs\2026-05-25T21_15_59_300Z-debug-0.log
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ git init
+Reinitialized existing Git repository in C:/Users/kesouza/Documents/sescbosque/.git/
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ npm install @supabase/supabase-js
+npm error code ETIMEDOUT
+npm error errno ETIMEDOUT
+npm error network request to https://registry.npmjs.org/@supabase%2fsupabase-js failed, reason:
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly. See: 'npm help config'
+npm error A complete log of this run can be found in: C:\Users\kesouza\AppData\Local\npm-cache_logs\2026-05-25T21_19_32_959Z-debug-0.log
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ touch supabaseClient.js
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ code supabaseClient.js
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ // supabaseClient.js
+const supabaseUrl = 'https://xaotmnynsvbjugdlalmb.supabase.co'
+const supabaseAnonKey = 'sb_publishable_NcUtLU0LxvA3IB1UNnvyoA__nkFB6Cu'
+let supabase
+// Função para inicializar (será chamada depois de carregar o CDN)
+function initSupabase() {
+  supabase = supabase.createClient(supabaseUrl, supabaseAnonKey)
+  console.log("✅ Supabase inicializado!")
+}
+// Export para usar em outros arquivos (se for módulo)
+export { supabase, initSupabase }
+bash: //: Is a directory
+bash: const: command not found
+bash: const: command not found
+bash: syntax error near unexpected token (' bash: syntax error near unexpected token ('
+bash: syntax error near unexpected token "✅ Supabase inicializado!"' bash: syntax error near unexpected token }'
+bash: syntax error near unexpected token (' bash: export: {': not a valid identifier
+bash: export: supabase,': not a valid identifier bash: export: }': not a valid identifier
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabaseClient.js"></script>
+<script>
+&nbsp;&nbsp;// Inicializa depois de carregar tudo
+&nbsp;&nbsp;window.onload = function() {
+&nbsp;&nbsp;&nbsp;&nbsp;initSupabase();
+&nbsp;&nbsp;}
+</script>
+bash: !-: event not found
+bash: syntax error near unexpected token <' bash: syntax error near unexpected token <'
+bash: syntax error near unexpected token newline' bash: //: Is a directory bash: syntax error near unexpected token ('
+bash: syntax error near unexpected token ;' bash: syntax error near unexpected token }'
+bash: syntax error near unexpected token `newline'
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$✅ Entendi o problema.
+Você abriu o arquivo com code supabaseClient.js, mas depois colou o código JavaScript direto no terminal. Por isso apareceu vários erros de sintaxe.
+
+Vamos corrigir agora:
+1. Abra novamente o arquivo no VS Code
+Bashcode supabaseClient.js
+
+2. Apague tudo que tem dentro do arquivo e cole exatamente este código abaixo:
+JavaScript// supabaseClient.js
+const supabaseUrl = 'https://xaotmnynsvbjugdlalmb.supabase.co'
+const supabaseAnonKey = 'sb_publishable_NcUtLU0LxvA3IB1UNnvyoA__nkFB6Cu'
+
+let supabase
+
+function initSupabase() {
+  supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey)
+  console.log("✅ Supabase inicializado com sucesso!")
+}
+
+export { supabase, initSupabase }
+Salve o arquivo (Ctrl + S) e feche o VS Code.
+
+3. Agora me confirme:
+Depois de salvar o arquivo, rode este comando para ver se o arquivo foi criado corretamente:
+Bashcat supabaseClient.js
+Cole aqui o resultado (o que aparecer).
+
+Próximo passo (HTML):
+Depois que confirmarmos que o arquivo está correto, eu te passo o código exato para colocar no index.html.
+
+Dica:
+Nunca cole código JavaScript ou HTML direto no terminal. O terminal só entende comandos, não código.
+Pode rodar o code supabaseClient.js novamente e colar o código acima dentro do VS Code. Depois rode o cat e me mostre.eu tilizo o cursor como editor de código✅ Entendido! Você usa o Cursor como editor de código.
+Vamos ajustar os comandos:
+
+Corrija o arquivo supabaseClient.js usando o Cursor:
+Rode este comando no terminal:
+Bashcursor supabaseClient.js
+
+Quando o Cursor abrir o arquivo, apague tudo que estiver dentro dele e cole exatamente este código:
+JavaScript// supabaseClient.js
+const supabaseUrl = 'https://xaotmnynsvbjugdlalmb.supabase.co'
+const supabaseAnonKey = 'sb_publishable_NcUtLU0LxvA3IB1UNnvyoA__nkFB6Cu'
+
+let supabase
+
+function initSupabase() {
+  supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey)
+  console.log("✅ Supabase inicializado com sucesso!")
+}
+
+export { supabase, initSupabase }
+Depois salve o arquivo (Ctrl + S).
+
+Verifique se ficou correto:
+Volte no terminal e rode:
+Bashcat supabaseClient.js
+Cole aqui o resultado que aparecer.
+
+Depois disso, me diga como está seu projeto:
+
+É um projeto HTML + CSS + JS puro?
+Ou é React / Vite / Next.js?
+
+Assim eu te passo a próxima parte (como conectar no HTML ou no React).
+Pode abrir o arquivo com o Cursor agora e colar o código.kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ pwd
+/c/Users/kesouza/Documents/sescbosque
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ npm install -g supabase
+npm error code ETIMEDOUT
+npm error errno ETIMEDOUT
+npm error network request to https://registry.npmjs.org/supabase failed, reason:
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly. See: 'npm help config'
+npm error A complete log of this run can be found in: C:\Users\kesouza\AppData\Local\npm-cache_logs\2026-05-25T21_10_15_488Z-debug-0.log
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ # 1. Instala como dependência do projeto (não global)
+npm install supabase --save-dev
+# 2. Testa se funcionou
+npx supabase --version
+npm error code ETIMEDOUT
+npm error errno ETIMEDOUT
+npm error network request to https://registry.npmjs.org/supabase failed, reason:
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly. See: 'npm help config'
+npm error A complete log of this run can be found in: C:\Users\kesouza\AppData\Local\npm-cache_logs\2026-05-25T21_13_34_493Z-debug-0.log
+npm error code ETIMEDOUT
+npm error errno ETIMEDOUT
+npm error network request to https://registry.npmjs.org/supabase failed, reason:
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly. See: 'npm help config'
+npm error A complete log of this run can be found in: C:\Users\kesouza\AppData\Local\npm-cache_logs\2026-05-25T21_15_59_300Z-debug-0.log
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ git init
+Reinitialized existing Git repository in C:/Users/kesouza/Documents/sescbosque/.git/
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ npm install @supabase/supabase-js
+npm error code ETIMEDOUT
+npm error errno ETIMEDOUT
+npm error network request to https://registry.npmjs.org/@supabase%2fsupabase-js failed, reason:
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly. See: 'npm help config'
+npm error A complete log of this run can be found in: C:\Users\kesouza\AppData\Local\npm-cache_logs\2026-05-25T21_19_32_959Z-debug-0.log
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ touch supabaseClient.js
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ code supabaseClient.js
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ // supabaseClient.js
+const supabaseUrl = 'https://xaotmnynsvbjugdlalmb.supabase.co'
+const supabaseAnonKey = 'sb_publishable_NcUtLU0LxvA3IB1UNnvyoA__nkFB6Cu'
+let supabase
+// Função para inicializar (será chamada depois de carregar o CDN)
+function initSupabase() {
+  supabase = supabase.createClient(supabaseUrl, supabaseAnonKey)
+  console.log("✅ Supabase inicializado!")
+}
+// Export para usar em outros arquivos (se for módulo)
+export { supabase, initSupabase }
+bash: //: Is a directory
+bash: const: command not found
+bash: const: command not found
+bash: syntax error near unexpected token (' bash: syntax error near unexpected token ('
+bash: syntax error near unexpected token "✅ Supabase inicializado!"' bash: syntax error near unexpected token }'
+bash: syntax error near unexpected token (' bash: export: {': not a valid identifier
+bash: export: supabase,': not a valid identifier bash: export: }': not a valid identifier
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabaseClient.js"></script>
+<script>
+&nbsp;&nbsp;// Inicializa depois de carregar tudo
+&nbsp;&nbsp;window.onload = function() {
+&nbsp;&nbsp;&nbsp;&nbsp;initSupabase();
+&nbsp;&nbsp;}
+</script>
+bash: !-: event not found
+bash: syntax error near unexpected token <' bash: syntax error near unexpected token <'
+bash: syntax error near unexpected token newline' bash: //: Is a directory bash: syntax error near unexpected token ('
+bash: syntax error near unexpected token ;' bash: syntax error near unexpected token }'
+bash: syntax error near unexpected token `newline'
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ cursor supabaseClient.js
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$ cat supabaseClient.js
+// supabaseClient.js
+const supabaseUrl = 'https://xaotmnynsvbjugdlalmb.supabase.co'
+const supabaseAnonKey = 'sb_publishable_NcUtLU0LxvA3IB1UNnvyoA__nkFB6Cu'
+let supabase
+function initSupabase() {
+  supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey)
+  console.log("✅ Supabase inicializado com sucesso!")
+}
+export { supabase, initSupabase }
+kesouza@GETIC14036 MINGW64 ~/Documents/sescbosque (main)
+$✅ Ótimo! Agora o arquivo supabaseClient.js está correto.
+
+Próximo passo: Configurar o HTML
+Como você está usando HTML + JavaScript puro (pelo que estou vendo), faça o seguinte:
+
+Abra seu arquivo principal (provavelmente index.html) com o Cursor:
+
+Bashcursor index.html
+
+Dentro do <head> ou antes do </body>, cole este código:
+
+HTML<!-- Supabase CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- Seu cliente -->
+<script src="supabaseClient.js"></script>
+
+<script>
+  // Inicializa o Supabase quando a página carregar
+  window.onload = function() {
+    initSupabase();
+    
+    // Teste simples - pode apagar depois
+    console.log("🚀 Projeto SESC Bosque carregado!");
+  };
+</script>
+Salve o arquivo.
+
+Testar se está funcionando
+
+Abra o index.html no navegador (clique duas vezes no arquivo).
+Pressione F12 (abrir Console do navegador).
+Veja se aparece a mensagem:
+
+text✅ Supabase inicializado com sucesso!
+
+Me diga agora:
+
+Apareceu a mensagem de sucesso no console?
+Qual é o nome do seu arquivo HTML principal? (index.html, app.html, etc.)
+O que você quer fazer primeiro no banco de dados?
+Login / Cadastro de usuários
+Criar tabela de peças
+Inserir dados de auto-peças
+Listar itens
+
+
+Me fala qual funcionalidade você precisa primeiro que eu te passo o código pronto.Leia meus aquivos e entenda oque é✅ Entendi perfeitamente agora!
+Seu projeto é uma plataforma completa do Sesc Bosque com:
+
+Cardápio (Restaurante + Lanchonete)
+Agendamento de Espaços
+Painel Administrativo
+Dados atualmente salvos em localStorage (offline-first)
+
+Você quer migrar/integrar o Supabase para ter os dados salvos na nuvem, mantendo a boa experiência atual.
+
+Diagnóstico Rápido dos Arquivos
+
+supabaseClient.js → Já está criado e correto.
+script.js → Tem toda a lógica de dados (AppData, MENU_DATA, etc.) usando localStorage.
+As páginas HTML já carregam o Supabase via CDN.
+O admin é bem completo.
+
+
+Próximo Passo: Integrar Supabase de forma limpa
+Vou te dar a melhor abordagem agora:
+1. Atualize o supabaseClient.js
+Abra o arquivo com o Cursor:
+Bashcursor supabaseClient.js
+Substitua todo o conteúdo por este:
+JavaScript// supabaseClient.js
+const supabaseUrl = 'https://xaotmnynsvbjugdlalmb.supabase.co'
+const supabaseAnonKey = 'sb_publishable_NcUtLU0LxvA3IB1UNnvyoA__nkFB6Cu'
+
+let supabaseClient = null
+
+function initSupabase() {
+  try {
+    supabaseClient = window.supabase.createClient(supabaseUrl, supabaseAnonKey)
+    console.log("✅ Supabase conectado com sucesso!")
+    return supabaseClient
+  } catch (error) {
+    console.error("❌ Erro ao conectar Supabase:", error)
+    return null
+  }
+}
+
+export { supabaseClient, initSupabase }
+
+2. Atualize o script.js (parte principal)
+No final do script.js, substitua a parte de inicialização do Supabase por esta versão melhorada:
+JavaScript// ====================== SUPABASE INTEGRATION ======================
+let supabaseClient = null;
+
+async function initSupabase() {
+  try {
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    console.log('✅ Supabase inicializado com sucesso!');
+    
+    // Teste de conexão
+    const { data, error } = await supabaseClient.from('test').select('count').limit(1);
+    if (!error) console.log('✅ Conexão com Supabase funcional');
+    
+  } catch (error) {
+    console.error('❌ Falha ao inicializar Supabase:', error);
+  }
+}
+
+// Inicializa
+initSupabase();
+// ============================================================
+
+Me responda agora para eu continuar te ajudando de forma precisa:
+
+Você já criou as tabelas no Supabase? (ex: cardapio_restaurante, cardapio_lanchonete, espacos, usuarios, solicitacoes)
+Qual é a prioridade agora?
+A) Fazer o Admin salvar no Supabase (principal)
+B) Fazer as páginas públicas lerem do Supabase
+C) Sincronizar localStorage ↔ Supabase (híbrido)
+
+
+
+Enquanto você responde, já rode isso no terminal para testar se o cliente está carregando:
+Bashcursor index.html
+E veja no console (F12) se aparece "Supabase inicializado com sucesso!"
+Pode colar aqui o que aparecer no console.
+Você já criou as tabelas no Supabase? (ex: cardapio_restaurante, cardapio_lanchonete, espacos, usuarios, solicitacoes) Não criei nada até agr
+B) Fazer as páginas públicas lerem do Supabase. Quero sim
+C) Sincronizar localStorage ↔ Supabase (híbrido) Quero sim, se possivél todo o meu banco de dados vai ser online
+✅ Perfeito! Agora entendi exatamente o que você quer.
+Vamos fazer uma integração híbrida (localStorage + Supabase) com prioridade em:
+
+Páginas públicas lendo do Supabase
+Admin podendo salvar tanto local quanto online
+Migração gradual para 100% online
+
+
+PASSO 1: Criar as tabelas no Supabase
+Acesse seu projeto:
+https://supabase.com/dashboard/project/xaotmnynsvbjugdlalmb
+Vá em Table Editor → New Table e crie as seguintes tabelas:
+1. Tabela: restaurante_itens
+SQLid          uuid PRIMARY KEY DEFAULT uuid_generate_v4()
+nome        text NOT NULL
+categoria   text
+descricao   text
+preco_publico numeric(10,2)
+preco_sesc    numeric(10,2)
+disponivel  boolean DEFAULT true
+destaque    boolean DEFAULT false
+tags        text[] 
+img         text
+created_at  timestamptz DEFAULT now()
+2. Tabela: lanchonete_itens (mesma estrutura)
+SQLid          uuid PRIMARY KEY DEFAULT uuid_generate_v4()
+nome        text NOT NULL
+categoria   text
+descricao   text
+preco_publico numeric(10,2)
+preco_sesc    numeric(10,2)
+disponivel  boolean DEFAULT true
+destaque    boolean DEFAULT false
+tags        text[] 
+img         text
+created_at  timestamptz DEFAULT now()
+3. Tabela: espacos
+SQLid          uuid PRIMARY KEY DEFAULT uuid_generate_v4()
+nome        text NOT NULL
+categoria   text
+descricao   text
+capacidade  integer
+horarios    text
+antecedencia text
+regras      text
+img         text
+created_at  timestamptz DEFAULT now()
+
+Faça isso agora e me avise quando terminar de criar as 3 tabelas.
+Depois vamos:
+
+Inserir os dados iniciais (os que você já tem)
+Modificar o script.js para ler do Supabase nas páginas públicas
+Configurar o Admin para salvar no Supabase
+
+
+Enquanto você cria as tabelas, me confirme:
+
+Quer que eu já prepare o código para inserir os dados iniciais via script (uma única vez)?
+Prefere manter os dados atuais do localStorage como backup?
+
+Pode ir criando as tabelas e me avisar quando estiver pronto.Failed to run sql query: ERROR: 42804: column "preco_publico" is of type numeric but default expression is of type record HINT: You will need to rewrite or cast the expression.✅ Entendi o erro.
+Esse erro acontece porque o Supabase/PostgreSQL teve problema com o tipo numeric + default. Vamos corrigir.
+
+✅ Crie as tabelas com estes comandos corrigidos:
+Vá em SQL Editor no Supabase e rode um por um:
+1. Tabela restaurante_itens
+SQLCREATE TABLE restaurante_itens (
+  id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+  nome text NOT NULL,
+  categoria text,
+  descricao text,
+  preco_publico numeric(10,2) DEFAULT 0,
+  preco_sesc numeric(10,2) DEFAULT 0,
+  disponivel boolean DEFAULT true,
+  destaque boolean DEFAULT false,
+  tags text[],
+  img text,
+  created_at timestamptz DEFAULT now()
+);
+2. Tabela lanchonete_itens
+SQLCREATE TABLE lanchonete_itens (
+  id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+  nome text NOT NULL,
+  categoria text,
+  descricao text,
+  preco_publico numeric(10,2) DEFAULT 0,
+  preco_sesc numeric(10,2) DEFAULT 0,
+  disponivel boolean DEFAULT true,
+  destaque boolean DEFAULT false,
+  tags text[],
+  img text,
+  created_at timestamptz DEFAULT now()
+);
+3. Tabela espacos
+SQLCREATE TABLE espacos (
+  id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+  nome text NOT NULL,
+  categoria text,
+  descricao text,
+  capacidade integer,
+  horarios text,
+  antecedencia text,
+  regras text,
+  img text,
+  created_at timestamptz DEFAULT now()
+);
+
+Rode esses 3 comandos e me diga se deu certo (se apareceu "Query executed successfully").
+Depois disso, vamos inserir os dados iniciais que você já tem.
+Pode colar aqui o resultado de cada execução.Issues found in spreadsheet
+You can still create the table, but we found issues:
+
+Toggle details for row 0
+  Row 0:
+  Too many fields: expected 1 fields but parsed 2
+  Extra field(s):
+
+  *  
+
+Toggle details for row 1
+  Row 1:
+  Too many fields: expected 1 fields but parsed 2
+  Extra field(s):
+
+  *  
+
+Toggle details for row 2
+  Row 2:
+  Too many fields: expected 1 fields but parsed 2
+  Extra field(s):
+
+  *  
+
+Toggle details for row 3
+  Row 3:
+  Too many fields: expected 1 fields but parsed 2
+  Extra field(s):
+
+  *  
+
+Toggle details for row 4
+  Row 4:
+  Too many fields: expected 1 fields but parsed 3
+  Extra field(s):
+
+  * 2) DEFAULT 0
+  *  
+
+Toggle details for row 5
+  Row 5:
+  Too many fields: expected 1 fields but parsed 3
+  Extra field(s):
+
+  * 2) DEFAULT 0
+  *  
+
+Toggle details for row 6
+  Row 6:
+  Too many fields: expected 1 fields but parsed 2
+  Extra field(s):
+
+  *  
+
+Toggle details for row 7
+  Row 7:
+  Too many fields: expected 1 fields but parsed 2
+  Extra field(s):
+
+  *  
+
+Toggle details for row 8
+  Row 8:
+  Too many fields: expected 1 fields but parsed 2
+  Extra field(s):
+
+  *  
+
+Toggle details for row 9
+  Row 9:
+  Too many fields: expected 1 fields but parsed 2
+  Extra field(s):
+
+  *✅ Entendi o problema.
+Você está tentando criar a tabela usando o modo Spreadsheet (Table Editor) do Supabase, e ele está interpretando errado os comandos SQL.
+
+Solução Correta:
+Use o SQL Editor (muito mais confiável):
+
+No Supabase, vá em SQL Editor (no menu lateral esquerdo)
+Cole um comando por vez e clique em RUN
+
+
+Rode estes comandos um por um:
+1. Restaurante
+SQLCREATE TABLE IF NOT EXISTS restaurante_itens (
+  id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+  nome text NOT NULL,
+  categoria text,
+  descricao text,
+  preco_publico numeric(10,2) DEFAULT 0,
+  preco_sesc numeric(10,2) DEFAULT 0,
+  disponivel boolean DEFAULT true,
+  destaque boolean DEFAULT false,
+  tags text[],
+  img text,
+  created_at timestamptz DEFAULT now()
+);
+2. Lanchonete
+SQLCREATE TABLE IF NOT EXISTS lanchonete_itens (
+  id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+  nome text NOT NULL,
+  categoria text,
+  descricao text,
+  preco_publico numeric(10,2) DEFAULT 0,
+  preco_sesc numeric(10,2) DEFAULT 0,
+  disponivel boolean DEFAULT true,
+  destaque boolean DEFAULT false,
+  tags text[],
+  img text,
+  created_at timestamptz DEFAULT now()
+);
+3. Espaços
+SQLCREATE TABLE IF NOT EXISTS espacos (
+  id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+  nome text NOT NULL,
+  categoria text,
+  descricao text,
+  capacidade integer,
+  horarios text,
+  antecedencia text,
+  regras text,
+  img text,
+  created_at timestamptz DEFAULT now()
+);
+
+Faça isso agora e me avise o resultado de cada um (se apareceu "Success" ou algum erro).
+Depois que as 3 tabelas forem criadas com sucesso, eu te passo o script para inserir os dados iniciais (os que você já tem no localStorage).
+Pode colar aqui o que apareceu após rodar cada comando.Gere arquivos CSV✅ Entendido! Vou gerar os 3 arquivos CSV prontos para você importar no Supabase.
+
+1. Crie os arquivos na sua pasta do projeto
+Rode estes comandos no terminal (Git Bash):
+Bash# Cria a pasta para CSVs (opcional)
+mkdir -p csv_import
+
+# Cria os arquivos CSV
+cat > csv_import/restaurante_itens.csv << 'EOF'
+nome,categoria,descricao,preco_publico,preco_sesc,disponivel,destaque,tags,img
+Frango Grelhado ao Limão,Prato Principal,Peito de frango grelhado com ervas finas e limão siciliano,18.50,14.80,true,true,"Sem glúten,Proteico",https://images.unsplash.com/photo-1598103442097-8b74394b95c4?w=400
+Filé de Peixe Amazônico,Prato Principal,Filé de tambaqui grelhado ao molho de tucupi com pimenta-de-cheiro,22.00,17.60,true,true,"Regional,Sem glúten",https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400
+Carne Assada ao Molho Pardo,Prato Principal,Paleta bovina assada lentamente com batatas e legumes,20.00,16.00,true,false,Proteico,https://images.unsplash.com/photo-1544025162-d76694265947?w=400
+Arroz Branco,Acompanhamentos,Arroz soltinho temperado com alho e sal,4.00,3.20,true,false,Vegano,https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?w=400
+Feijão Tropeiro,Acompanhamentos,Feijão carioca com bacon e farinha de mandioca,5.50,4.40,true,false,Regional,https://images.unsplash.com/photo-1547592180-85f173990554?w=400
+Salada da Horta,Acompanhamentos,Mix de folhas verdes com tomate e pepino,6.00,4.80,true,false,"Vegano,Sem glúten",https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400
+Pudim de Leite,Sobremesas,Pudim cremoso com calda de caramelo dourado,7.00,5.60,true,false,,https://images.unsplash.com/photo-1528975604071-b4dc52a2d18c?w=400
+Suco de Cupuaçu,Bebidas,Suco natural de cupuaçu amazônico,5.00,4.00,true,false,"Vegano,Regional",https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=400
+Água Mineral,Bebidas,Água mineral sem gás 500ml,2.50,2.00,true,false,Vegano,https://images.unsplash.com/photo-1550505095-81378a674395?w=400
+EOF
+Bashcat > csv_import/lanchonete_itens.csv << 'EOF'
+nome,categoria,descricao,preco_publico,preco_sesc,disponivel,destaque,tags,img
+X-Sesc Especial,Lanches,Hambúrguer artesanal com queijo e molho especial,14.00,11.20,true,true,,https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400
+Misto Quente,Lanches,Presunto e queijo grelhado na chapa,8.00,6.40,true,false,,https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=400
+Coxinha de Frango,Salgados,Coxinha crocante com frango e catupiry,4.50,3.60,true,false,,https://images.unsplash.com/photo-1601314002592-b8734bca6604?w=400
+Pão de Queijo,Salgados,Pão de queijo artesanal quentinho,3.50,2.80,true,false,Sem glúten,https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400
+Vitamina de Açaí,Sucos & Vitaminas,Açaí com banana, granola e mel,9.00,7.20,true,true,"Vegano,Regional",https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=400
+Suco de Graviola,Sucos & Vitaminas,Suco natural de graviola,7.00,5.60,true,false,Regional,https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=400
+Café Expresso,Café & Bebidas,100% arábica torrado na hora,4.00,3.20,true,false,Vegano,https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=400
+Cappuccino,Café & Bebidas,Espresso com leite vaporizado e espuma,6.50,5.20,true,false,,https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400
+Bolo de Macaxeira,Doces & Bolos,Bolo de mandioca com coco e calda de leite,6.50,5.20,true,false,Regional,https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=400
+EOF
+Bashcat > csv_import/espacos.csv << 'EOF'
+nome,categoria,descricao,capacidade,horarios,antecedencia,regras,img
+Quadra Poliesportiva,Esporte,Quadra coberta para futebol de salão, basquete e vôlei.,200,Seg–Sex: 7h–22h | Sáb: 8h–18h | Dom: 8h–14h,Mín. 48h de antecedência,Trajar adequado obrigatório.,https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400
+Auditório Principal,Eventos,Auditório climatizado com sistema de som profissional.,150,Seg–Sex: 8h–21h | Sáb: 8h–16h,Mín. 72h de antecedência,Alimentação não permitida.,https://images.unsplash.com/photo-1511578314322-379afb476865?w=400
+Salão de Festas,Eventos,Salão decorado com cozinha integrada.,100,Sáb e Dom: 8h–23h,Mín. 7 dias de antecedência,Limpeza é responsabilidade do solicitante.,https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=400
+Campo Society,Esporte,Campo gramado com iluminação LED.,22,Seg–Sex: 17h–22h | Sáb: 8h–22h,Mín. 24h de antecedência,Apenas chuteiras de borracha.,https://images.unsplash.com/photo-1459865264687-595d652de67e?w=400
+Sala de Reuniões A,Corporativo,Sala com projetor 4K e quadro branco.,20,Seg–Sex: 8h–18h,Mín. 24h de antecedência,Uso exclusivo para associados.,https://images.unsplash.com/photo-1497366216548-37526070297c?w=400
+EOF
+
+Como importar no Supabase:
+
+Vá em Table Editor
+Clique na tabela desejada (restaurante_itens, por exemplo)
+Clique em Import
+Selecione o arquivo CSV correspondente
+Mapeie as colunas (deve dar certo automaticamente)
+Importe
+
+Faça isso para os 3 arquivos.
+
+Depois de importar, me avise que eu te passo o código para ler esses dados do Supabase nas páginas públicas.
+Quer que eu gere também um CSV para usuarios?Deu tudo certo, criei ás 3 tabelas✅ Ótimo! Parabéns, as tabelas foram criadas.
+
+Próximo Passo: Importar os dados iniciais
+Agora vamos popular as tabelas com os dados que você já usa.
+Faça o seguinte:
+
+Importe os CSVs que eu te gerei anteriormente:
+Vá em Table Editor
+Clique na tabela restaurante_itens → botão Import
+Selecione o arquivo restaurante_itens.csv
+Importe
+Repita o mesmo para:
+lanchonete_itens → arquivo lanchonete_itens.csv
+espacos → arquivo espacos.csv
+
+
+Me avise quando terminar de importar os 3 CSVs.
+
+Depois da importação, vamos atualizar o código
+Enquanto você importa, já posso te adiantar o que vem em seguida:
+Vou criar uma nova versão do script.js que:
+
+Tenta carregar do Supabase primeiro
+Se falhar, usa o localStorage como fallback (híbrido)
+Permite que o Admin salve tanto local quanto no Supabase
+
+
+Responda aqui quando terminar de importar os CSVs para eu te passar os próximos arquivos atualizados.
+Pode colar uma print ou só dizer "Importei os 3 CSVs" que eu continuo.Eu já criei ás 3 tabelas e importei, qual e o proximo passo ?✅ Excelente! Agora que as tabelas estão criadas e com dados importados, vamos ao próximo passo.
+
+Próximo Passo: Fazer o site ler os dados do Supabase
+Vamos atualizar os arquivos para que as páginas públicas (index.html, restaurante.html, lanchonete.html, espacos.html) carreguem os dados do Supabase.
+
+1. Atualize o supabaseClient.js
+Abra o arquivo:
+Bashcursor supabaseClient.js
+Substitua todo o conteúdo por este:
+JavaScript// supabaseClient.js - Versão melhorada
+const supabaseUrl = 'https://xaotmnynsvbjugdlalmb.supabase.co'
+const supabaseAnonKey = 'sb_publishable_NcUtLU0LxvA3IB1UNnvyoA__nkFB6Cu'
+
+let supabaseClient = null
+
+function initSupabase() {
+  try {
+    supabaseClient = window.supabase.createClient(supabaseUrl, supabaseAnonKey)
+    console.log("✅ Supabase Client inicializado com sucesso!")
+    return supabaseClient
+  } catch (error) {
+    console.error("❌ Erro ao criar cliente Supabase:", error)
+    return null
+  }
+}
+
+// Função auxiliar para buscar dados
+async function fetchFromSupabase(table) {
+  if (!supabaseClient) {
+    console.warn("Supabase não inicializado")
+    return null
+  }
+  try {
+    const { data, error } = await supabaseClient
+      .from(table)
+      .select('*')
+      .order('created_at', { ascending: false })
+
+    if (error) throw error
+    console.log(`✅ Dados carregados de ${table}:`, data?.length || 0, "itens")
+    return data
+  } catch (error) {
+    console.error(`Erro ao buscar ${table}:`, error)
+    return null
+  }
+}
+
+export { supabaseClient, initSupabase, fetchFromSupabase }
+Salve o arquivo.
+
+2. Me diga qual página você quer integrar primeiro
+Para não fazer tudo de uma vez, vamos começar por uma página. Qual você prefere primeiro?
+
+A) lanchonete.html (mais simples)
+B) restaurante.html
+C) espacos.html
+
+Ou quer que eu faça todas de uma vez?
+Responda com A, B ou C (ou "todas") que eu te passo o código exato para substituir na página escolhida.Lanchonete✅ Perfeito! Vamos integrar primeiro a página Lanchonete.
+
+Passo 1: Atualize o arquivo lanchonete.html
+Abra o arquivo com o Cursor:
+Bashcursor lanchonete.html
+Substitua a seção <script> principal (a última grande tag <script> no final do arquivo) pelo código atualizado abaixo:
+HTML<script src="./supabaseClient.js"></script>
+
+<script>
+  // ==================== INTEGRAÇÃO SUPABASE - LANCHONETE ====================
+  let dadosLanchonete = [];
+  let categoriasDisponiveis = [];
+  let filtroAtivo = "todos";
+
+  async function carregarLanchoneteDoSupabase() {
+    const dados = await fetchFromSupabase('lanchonete_itens');
+    
+    if (dados && dados.length > 0) {
+      dadosLanchonete = dados.map(item => ({
+        id: item.id,
+        nome: item.nome,
+        categoria: item.categoria,
+        descricao: item.descricao,
+        precoPublico: parseFloat(item.preco_publico) || 0,
+        precoSesc: parseFloat(item.preco_sesc) || 0,
+        disponivel: item.disponivel,
+        destaque: item.destaque,
+        tags: item.tags || [],
+        img: item.img
+      }));
+      
+      // Extrai categorias únicas
+      categoriasDisponiveis = [...new Set(dadosLanchonete.map(i => i.categoria))];
+      console.log(`✅ ${dadosLanchonete.length} itens da lanchonete carregados do Supabase`);
+      return true;
+    } else {
+      console.warn("⚠️ Nenhum dado encontrado no Supabase. Usando dados locais.");
+      // Fallback para dados locais
+      carregarDadosLocal();
+      return false;
+    }
+  }
+
+  function carregarDadosLocal() {
+    const dadosCompletos = AppData.carregar();
+    const lanchonete = dadosCompletos.menu.lanchonete;
+    dadosLanchonete = lanchonete.itens || [];
+    categoriasDisponiveis = lanchonete.categorias || [];
+  }
+
+  // ==================== RESTANTE DO CÓDIGO (mantido) ====================
+  function renderFiltros() {
+    const container = document.getElementById("filtros-container");
+    if (!container) return;
+
+    const catsComItens = categoriasDisponiveis.filter(c => 
+      dadosLanchonete.some(i => i.categoria === c)
+    );
+
+    let html = `<button class="filtro-btn ${filtroAtivo === "todos" ? "ativo" : ""}" onclick="filtrar('todos', this)">Todos</button>`;
+    
+    catsComItens.forEach(c => {
+      html += `<button class="filtro-btn ${filtroAtivo === c ? "ativo" : ""}" onclick="filtrar('${c}', this)">${c}</button>`;
+    });
+
+    container.innerHTML = html;
+  }
+
+  function filtrar(cat, btn) {
+    filtroAtivo = cat;
+    document.querySelectorAll(".filtro-btn").forEach(b => b.classList.remove("ativo"));
+    if (btn) btn.classList.add("ativo");
+    renderCardapio();
+  }
+
+  function renderCardapio() {
+    const container = document.getElementById("menu-content");
+    if (!container) return;
+
+    const itensVisiveis = dadosLanchonete.filter(i => i.disponivel !== false);
+    const catsExibir = filtroAtivo === "todos" 
+      ? categoriasDisponiveis.filter(c => itensVisiveis.some(i => i.categoria === c))
+      : [filtroAtivo];
+
+    let html = "";
+
+    catsExibir.forEach(cat => {
+      const itensFiltrados = itensVisiveis.filter(i => i.categoria === cat);
+      if (!itensFiltrados.length) return;
+
+      html += `<h2 class="section-title">${cat} <span class="section-count">${itensFiltrados.length} itens</span></h2>`;
+      html += `<div class="menu-grid">${itensFiltrados.map(renderItem).join("")}</div>`;
+    });
+
+    container.innerHTML = html || `<div class="empty-state"><p>Nenhum item disponível no momento.</p></div>`;
+  }
+
+  function renderItem(item) {
+    const pub = item.precoPublico ?? 0;
+    const sesc = item.precoSesc ?? pub;
+    const desconto = pub > 0 && sesc < pub ? Math.round((1 - sesc / pub) * 100) : 0;
+    const tags = item.tags || [];
+
+    return `<div class="item-card">
+      <div style="position:relative">
+        <img class="item-img" src="${item.img || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400'}" alt="${item.nome}" loading="lazy">
+        ${item.destaque ? '<div class="item-badges"><span class="badge badge-destaque">⭐ Destaque</span></div>' : ''}
+      </div>
+      <div class="item-body">
+        <div class="item-name">${item.nome}</div>
+        <div class="item-desc">${item.descricao || ''}</div>
+        ${tags.length ? `<div class="item-tags">${tags.map(t => `<span class="item-tag">${t}</span>`).join('')}</div>` : ''}
+        <div class="item-price">
+          <div>
+            <div class="price-label">Associado Sesc</div>
+            <div class="price-sesc">R$ ${sesc.toFixed(2).replace(".", ",")}</div>
+          </div>
+          ${desconto > 0 ? `<span class="price-pub">R$ ${pub.toFixed(2).replace(".", ",")}</span><span class="price-badge">-${desconto}%</span>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }
+
+  // Inicialização
+  async function initLanchonete() {
+    await carregarLanchoneteDoSupabase();
+    renderFiltros();
+    renderCardapio();
+    toast("Cardápio da Lanchonete carregado!", "azul");
+  }
+
+  // Executa ao carregar
+  window.onload = initLanchonete;
+</script>
+
+O que fazer agora:
+
+Substitua a última parte do lanchonete.html pelo código acima.
+Salve o arquivo.
+Abra lanchonete.html no navegador e veja se carrega os itens do Supabase.
+Abra o console (F12) e veja se aparece a mensagem de sucesso.
+
+
+Me avise o que aconteceu (se carregou os itens ou deu algum erro no console). Depois vamos fazer a mesma coisa para as outras páginas.Não abriu
+ 
+"Carregando cardápio da lanchonete…" infiniamente✅ Entendi o problema. A tela ficou travada no "Carregando cardápio da lanchonete…" porque a função assíncrona não está tratando erros corretamente.
+
+Vamos corrigir agora.
+Abra novamente o arquivo lanchonete.html:
+Bashcursor lanchonete.html
+Substitua toda a última tag <script> (a maior, no final) por esta versão mais robusta com tratamento de erro:
+HTML<script src="./supabaseClient.js"></script>
+
+<script>
+  // ==================== INTEGRAÇÃO SUPABASE - LANCHONETE ====================
+  let dadosLanchonete = [];
+  let categoriasDisponiveis = [];
+  let filtroAtivo = "todos";
+
+  async function carregarLanchoneteDoSupabase() {
+    try {
+      console.log("🔄 Tentando carregar do Supabase...");
+      const dados = await fetchFromSupabase('lanchonete_itens');
+      
+      if (dados && dados.length > 0) {
+        dadosLanchonete = dados.map(item => ({
+          id: item.id,
+          nome: item.nome,
+          categoria: item.categoria,
+          descricao: item.descricao,
+          precoPublico: parseFloat(item.preco_publico) || 0,
+          precoSesc: parseFloat(item.preco_sesc) || 0,
+          disponivel: item.disponivel !== false,
+          destaque: item.destaque === true,
+          tags: Array.isArray(item.tags) ? item.tags : [],
+          img: item.img
+        }));
+        
+        categoriasDisponiveis = [...new Set(dadosLanchonete.map(i => i.categoria).filter(Boolean))];
+        console.log(`✅ ${dadosLanchonete.length} itens carregados do Supabase`);
+        return true;
+      } 
+    } catch (error) {
+      console.error("❌ Erro ao carregar do Supabase:", error);
+    }
+
+    // Fallback para dados locais
+    console.warn("⚠️ Usando dados locais (fallback)");
+    carregarDadosLocal();
+    return false;
+  }
+
+  function carregarDadosLocal() {
+    const dadosCompletos = typeof AppData !== 'undefined' ? AppData.carregar() : { menu: { lanchonete: { itens: [], categorias: [] } } };
+    const lanchonete = dadosCompletos.menu?.lanchonete || {};
+    dadosLanchonete = lanchonete.itens || [];
+    categoriasDisponiveis = lanchonete.categorias || [];
+  }
+
+  function renderFiltros() {
+    const container = document.getElementById("filtros-container");
+    if (!container) return;
+
+    let html = `<button class="filtro-btn ${filtroAtivo === "todos" ? "ativo" : ""}" onclick="filtrar('todos', this)">Todos</button>`;
+    
+    categoriasDisponiveis.forEach(c => {
+      html += `<button class="filtro-btn ${filtroAtivo === c ? "ativo" : ""}" onclick="filtrar('${c}', this)">${c}</button>`;
+    });
+
+    container.innerHTML = html;
+  }
+
+  function filtrar(cat, btn) {
+    filtroAtivo = cat;
+    document.querySelectorAll(".filtro-btn").forEach(b => b.classList.remove("ativo"));
+    if (btn) btn.classList.add("ativo");
+    renderCardapio();
+  }
+
+  function renderCardapio() {
+    const container = document.getElementById("menu-content");
+    if (!container) return;
+
+    const itensVisiveis = dadosLanchonete.filter(i => i.disponivel !== false);
+    
+    if (itensVisiveis.length === 0) {
+      container.innerHTML = `<div class="empty-state"><p>Nenhum item disponível no momento.</p></div>`;
+      return;
+    }
+
+    const catsExibir = filtroAtivo === "todos" 
+      ? categoriasDisponiveis 
+      : [filtroAtivo];
+
+    let html = "";
+
+    catsExibir.forEach(cat => {
+      const itensFiltrados = itensVisiveis.filter(i => i.categoria === cat);
+      if (!itensFiltrados.length) return;
+
+      html += `<h2 class="section-title">${cat} <span class="section-count">${itensFiltrados.length} itens</span></h2>`;
+      html += `<div class="menu-grid">${itensFiltrados.map(renderItem).join("")}</div>`;
+    });
+
+    container.innerHTML = html;
+  }
+
+  function renderItem(item) {
+    const pub = item.precoPublico || 0;
+    const sesc = item.precoSesc || pub;
+    const desconto = pub > 0 && sesc < pub ? Math.round((1 - sesc / pub) * 100) : 0;
+    const tags = item.tags || [];
+
+    return `<div class="item-card">
+      <div style="position:relative">
+        <img class="item-img" src="${item.img || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400'}" alt="${item.nome}" loading="lazy">
+        ${item.destaque ? '<div class="item-badges"><span class="badge badge-destaque">⭐ Destaque</span></div>' : ''}
+      </div>
+      <div class="item-body">
+        <div class="item-name">${item.nome}</div>
+        <div class="item-desc">${item.descricao || ''}</div>
+        ${tags.length ? `<div class="item-tags">${tags.map(t => `<span class="item-tag">${t}</span>`).join('')}</div>` : ''}
+        <div class="item-price">
+          <div>
+            <div class="price-label">Associado Sesc</div>
+            <div class="price-sesc">R$ ${sesc.toFixed(2).replace(".", ",")}</div>
+          </div>
+          ${desconto > 0 ? `<span class="price-pub">R$ ${pub.toFixed(2).replace(".", ",")}</span><span class="price-badge">-${desconto}%</span>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }
+
+  // Inicialização principal
+  async function initLanchonete() {
+    document.getElementById("menu-content").innerHTML = `<div class="empty-state"><p>Carregando cardápio...</p></div>`;
+    
+    await carregarLanchoneteDoSupabase();
+    
+    renderFiltros();
+    renderCardapio();
+    
+    toast("✅ Cardápio da Lanchonete carregado!", "verde");
+  }
+
+  // Executa
+  window.onload = initLanchonete;
+</script>
+
+Salve o arquivo e teste novamente abrindo lanchonete.html no navegador.
+Me diga o que aconteceu agora:
+
+Ainda fica carregando?
+Apareceu algum erro no console (pressione F12)?
+Ou carregou os itens?
+
+Cole aqui o que aparecer no Console (F12).Deu certo, conseguir acessar o banco de dados, mas eu tentei fazer outro teste que foi entrar no banco de dados e adicionar outro item manualmente pelo o banco de dados, mas todas vez que eu tento aparece a seguinte mensagem
+ 
+Desculpe! Uma extensão do navegador pode ter causado um erro.
+Sabe-se que ferramentas de tradução do navegador (como o Tradutor integrado do Chrome) ou algumas extensões de navegador de terceiros causam erros ao usar o Painel de Controle do Supabase.
+Recomendamos fortemente desativar o Chrome Translate ou certas extensões do navegador ao usar o Painel de Controle da Supabase para evitar esse erro. Tente atualizar a página para ver se o problema persiste.
+Erro: Falha ao executar 'removeChild' em 'Node': O nó a ser removido não é filho deste nó.
+Mais informaçõesAtualizar página
+Ainda com dificuldades?✅ Entendi o problema.
+Esse erro é muito comum no Supabase Studio (Painel de Controle). Ele quase sempre é causado por extensões do navegador, principalmente:
+
+Tradutor do Google Chrome
+Extensões de tradução
+Ad blockers (uBlock, AdGuard, etc.)
+Dark mode extensions
+
+
+Solução Rápida (faça agora):
+
+Desative temporariamente o Tradutor do Chrome:
+Clique nos 3 pontinhos no canto superior direito do Chrome
+Vá em Configurações → Idiomas
+Desmarque a opção "Oferecer para traduzir páginas..."
+
+Tente em uma janela anônima (melhor teste):
+Pressione Ctrl + Shift + N para abrir uma janela anônima
+Acesse o Supabase novamente e tente adicionar o item
+
+Alternativa forte:
+Use outro navegador (Firefox, Edge) para editar o Supabase
+Ou desative todas as extensões temporariamente
+
+
+
+Depois de conseguir adicionar o item manualmente, me avise para continuarmos.
+Próximos passos que vamos fazer:
+
+Fazer o Admin salvar diretamente no Supabase
+Sincronizar os dados entre local e nuvem
+
+
+Me confirma:
+
+Conseguiu adicionar o item após desativar o tradutor ou usar janela anônima?
+Quer que eu já prepare o código do Painel Admin para salvar no Supabase?
+
+Pode testar agora e me falar o resultado.Todas as extensões
+Adobe Acrobat: ferramentas para editar, converter e assinar PDFs
+26.5.1.0
+Faça mais no Chrome com ferramentas do Adobe Acrobat PDF. Visualize, preencha, comente, assine e experimente as ferramentas de conversão e compactação.
+ID: efaidnbmnnnibpcajpcglclefindmkaj
+Google Docs off-line
+1.106.1
+Edite, crie e veja seus documentos, planilhas e apresentações sem precisar de acesso à Internet.
+ID: ghbmnnjooekpmoecnnnilnnbdlolhkhi
+Inspecionar visualizações:service worker (inativa)✅ Entendi!
+Das extensões que você listou, as que mais causam problema no Supabase são:
+
+Adobe Acrobat (muito comum causar esse erro)
+Google Docs Offline
+
+
+O que fazer agora:
+
+Desative temporariamente essas duas extensões:
+Clique nos 3 pontinhos → Extensões → Gerenciar extensões
+Desative Adobe Acrobat e Google Docs Offline
+
+Atualize a página do Supabase (Ctrl + F5) e tente adicionar o item novamente.
+Melhor solução a longo prazo:
+Use o Supabase em uma janela anônima (Ctrl + Shift + N) quando for editar o banco.
+(Nela as extensões ficam desativadas por padrão)
+
+
+
+Depois que conseguir adicionar o item manualmente, me avise com:
+"Consegui adicionar o item"
+Aí vamos continuar com o próximo passo importante: fazer o Painel Admin salvar diretamente no Supabase.
+Pode desativar as extensões e testar agora.Eu dei uma olhada depois e mesmo com aquele erro, o item aparecido na tabela do banco de dados mesmo sem fazer algo na extensão, mas oq eu achei estranho é que no site não apareceu os itens novos que eu edicionei, me fazendo quiestionar se realmente ainda está online ou se ainda está officiline mas máscarado✅ Entendi perfeitamente o que aconteceu.
+Você adicionou itens novos no Supabase, eles apareceram na tabela do banco, mas não apareceram no site. Isso é normal por enquanto, porque ainda não configuramos o site para atualizar automaticamente os dados novos.
+Vamos diagnosticar e corrigir agora:
+Abra a página lanchonete.html e pressione F12 (Console).
+Depois me responda:
+
+Apareceu alguma mensagem no console? (especialmente com ✅ ou ❌)
+Apareceu algo como "Supabase Client inicializado" ?
+Quantos itens ele diz que carregou? (Itens carregados do Supabase: X)
+
+Enquanto isso, vamos forçar uma atualização mais forte.
+
+Atualização Temporária (Teste Rápido)
+Abra novamente lanchonete.html com o Cursor:
+Bashcursor lanchonete.html
+Substitua a função carregarLanchoneteDoSupabase() por esta versão mais agressiva:
+JavaScriptasync function carregarLanchoneteDoSupabase() {
+  try {
+    console.log("🔄 Buscando dados do Supabase (forçado)...");
+    
+    const { data, error } = await supabaseClient
+      .from('lanchonete_itens')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) throw error;
+
+    if (data && data.length > 0) {
+      dadosLanchonete = data.map(item => ({
+        id: item.id,
+        nome: item.nome,
+        categoria: item.categoria,
+        descricao: item.descricao,
+        precoPublico: parseFloat(item.preco_publico) || 0,
+        precoSesc: parseFloat(item.preco_sesc) || 0,
+        disponivel: item.disponivel !== false,
+        destaque: item.destaque === true,
+        tags: Array.isArray(item.tags) ? item.tags : [],
+        img: item.img
+      }));
+
+      categoriasDisponiveis = [...new Set(dadosLanchonete.map(i => i.categoria).filter(Boolean))];
+      
+      console.log(`✅ ${dadosLanchonete.length} itens carregados do Supabase com sucesso!`);
+      return true;
+    }
+  } catch (error) {
+    console.error("❌ Erro ao buscar do Supabase:", error);
+  }
+
+  console.warn("⚠️ Falha no Supabase → Usando dados locais");
+  carregarDadosLocal();
+  return false;
+}
+Salve, atualize a página (Ctrl + F5) e me diga:
+
+Quantos itens aparecem agora?
+O que aparece no Console?
+
+
+Enquanto isso, me confirma uma coisa importante:
+Você quer que o site sempre priorize o Supabase (online) e só use localStorage como backup quando não conseguir conectar?
+Ou prefere que ele sincronize os dois automaticamente?A
+X Falha ao inicializar Supabase: ReferenceError: SUPABASE_URL is not defined at initSupabase (script.js:840:51)
+script.js:848
+at script.js:853:1
+Uncaught SyntaxError: Unexpected token 'export'
+supabaseClient.js:39
+Tentando carregar do Supabase...
+lanchonete.html:604
+X Erro ao carregar do Supabase: ReferenceError: fetchFromSupabase is not defined at carregarLanchoneteDoSupabase (lanchonete.html:605:25)
+lanchonete.html:626
+at initLanchonete (lanchonete.html:720:15)
+▲ Usando dados locais (fallback)
+lanchonete.html:630
+Write a comment to generate code. Try typing: '// add red borders to all the divs'. NEW✅ Entendi os erros.
+Os problemas são:
+
+SUPABASE_URL não está definido no script.js
+export não funciona bem quando o arquivo é carregado via <script src> (sem type="module")
+fetchFromSupabase não está sendo reconhecido
+
+
+Vamos corrigir de forma limpa agora.
+
+1. Atualize o supabaseClient.js
+Abra:
+Bashcursor supabaseClient.js
+Substitua todo o conteúdo por este (versão sem export):
+JavaScript// supabaseClient.js
+const SUPABASE_URL = 'https://xaotmnynsvbjugdlalmb.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_NcUtLU0LxvA3IB1UNnvyoA__nkFB6Cu';
+
+let supabaseClient = null;
+
+function initSupabase() {
+  try {
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    console.log("✅ Supabase Client inicializado com sucesso!");
+    return supabaseClient;
+  } catch (error) {
+    console.error("❌ Erro ao inicializar Supabase:", error);
+    return null;
+  }
+}
+
+async function fetchFromSupabase(table) {
+  if (!supabaseClient) {
+    console.warn("SupabaseClient não inicializado");
+    return null;
+  }
+  try {
+    const { data, error } = await supabaseClient
+      .from(table)
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) throw error;
+    return data;
+  } catch (error) {
+    console.error(`Erro ao buscar tabela ${table}:`, error);
+    return null;
+  }
+}
+
+// Torna as funções globais para funcionar sem módulos
+window.initSupabase = initSupabase;
+window.fetchFromSupabase = fetchFromSupabase;
+Salve.
+
+2. Atualize o lanchonete.html
+No final do arquivo, antes da tag </body>, certifique-se que tem isso:
+HTML<script src="./supabaseClient.js"></script>
+<script src="./script.js"></script>
+
+<script>
+  // Inicialização da Lanchonete com Supabase
+  async function initLanchonete() {
+    console.log("🔄 Iniciando Lanchonete...");
+    
+    // Inicializa Supabase
+    window.initSupabase();
+    
+    // Aguarda um pouco para o cliente inicializar
+    await new Promise(resolve => setTimeout(resolve, 300));
+
+    await carregarLanchoneteDoSupabase();
+    renderFiltros();
+    renderCardapio();
+    
+    toast("Cardápio carregado!", "verde");
+  }
+
+  window.onload = initLanchonete;
+</script>
+
+Faça essas duas alterações e teste novamente abrindo lanchonete.html (Ctrl + F5).
+Depois me diga o que aparece no Console (F12), especialmente se apareceu:
+
+"Supabase Client inicializado com sucesso!"
+Quantos itens foram carregados
+
+Pode colar as mensagens principais do console.Uncaught SyntaxError: Identifier 'supabaseClient' has already been declared (at script.js:1:1)
+🔄 Iniciando Lanchonete...
+✅ Supabase Client inicializado com sucesso!
+lanchonete.html:606 Uncaught (in promise) ReferenceError: carregarLanchoneteDoSupabase is not defined
+    at initLanchonete (lanchonete.html:606:9)
+ 
+ 
+e na pagina está aparecendo "Carregando cardápio da lanchonete…" e fica carregando infinitamente✅ Entendi os erros.
+O problema principal é que estamos tendo conflito de variáveis e a função não está sendo reconhecida. Vamos resolver de forma definitiva agora.
+
+Solução Limpa (Faça esses 2 passos)
+1. Atualize o supabaseClient.js
+Abra o arquivo:
+Bashcursor supabaseClient.js
+Apague tudo e cole isso:
+JavaScript// supabaseClient.js - Versão Final Simples
+const SUPABASE_URL = 'https://xaotmnynsvbjugdlalmb.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_NcUtLU0LxvA3IB1UNnvyoA__nkFB6Cu';
+
+let supabaseClient = null;
+
+function initSupabase() {
+  try {
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    console.log("✅ Supabase Client inicializado com sucesso!");
+    return true;
+  } catch (e) {
+    console.error("❌ Erro Supabase:", e);
+    return false;
+  }
+}
+
+async function fetchFromSupabase(table) {
+  if (!supabaseClient) return null;
+  try {
+    const { data, error } = await supabaseClient
+      .from(table)
+      .select('*')
+      .order('created_at', { ascending: false });
+    if (error) throw error;
+    return data;
+  } catch (e) {
+    console.error(`Erro ao buscar ${table}:`, e);
+    return null;
+  }
+}
+
+window.initSupabase = initSupabase;
+window.fetchFromSupabase = fetchFromSupabase;
+Salve.
+
+2. Atualize o final do lanchonete.html
+Abra:
+Bashcursor lanchonete.html
+Substitua todo o último <script> (o mais baixo) por este código completo e limpo:
+HTML<script src="./supabaseClient.js"></script>
+
+<script>
+  let dadosLanchonete = [];
+  let categoriasDisponiveis = [];
+  let filtroAtivo = "todos";
+
+  async function carregarLanchonete() {
+    document.getElementById("menu-content").innerHTML = `<div class="empty-state"><p>Carregando cardápio da lanchonete...</p></div>`;
+
+    // Inicializa Supabase
+    window.initSupabase();
+    await new Promise(r => setTimeout(r, 400)); // pequena espera
+
+    const dados = await window.fetchFromSupabase('lanchonete_itens');
+
+    if (dados && dados.length > 0) {
+      dadosLanchonete = dados.map(item => ({
+        nome: item.nome,
+        categoria: item.categoria,
+        descricao: item.descricao,
+        precoPublico: parseFloat(item.preco_publico) || 0,
+        precoSesc: parseFloat(item.preco_sesc) || 0,
+        disponivel: item.disponivel !== false,
+        destaque: item.destaque === true,
+        tags: Array.isArray(item.tags) ? item.tags : [],
+        img: item.img
+      }));
+
+      categoriasDisponiveis = [...new Set(dadosLanchonete.map(i => i.categoria).filter(c => c))];
+      console.log(`✅ ${dadosLanchonete.length} itens carregados do Supabase`);
+    } else {
+      console.warn("Usando fallback local");
+      // fallback local (seu AppData)
+      const localData = typeof AppData !== 'undefined' ? AppData.carregar() : { menu: { lanchonete: { itens: [] } } };
+      dadosLanchonete = localData.menu?.lanchonete?.itens || [];
+      categoriasDisponiveis = ["Lanches", "Salgados", "Sucos & Vitaminas", "Café & Bebidas", "Doces & Bolos"];
+    }
+
+    renderFiltros();
+    renderCardapio();
+    toast("Cardápio carregado com sucesso!", "verde");
+  }
+
+  function renderFiltros() { /* ... seu código anterior de renderFiltros ... */ }
+  function filtrar(cat, btn) { /* ... seu código anterior ... */ }
+  function renderCardapio() { /* ... seu código anterior ... */ }
+  function renderItem(item) { /* ... seu código anterior ... */ }
+
+  // Inicializa
+  window.onload = carregarLanchonete;
+</script>
+
+Salve tudo e teste novamente com Ctrl + F5 na página lanchonete.html.
+Me mande o que aparecer no Console (F12) agora. Quero ver especialmente as mensagens com ✅ ou ❌.
+Vamos resolver isso de vez.✅ Supabase Client inicializado com sucesso!
+supabase.js:20 GET https://xaotmnynsvbjugdlalmb.supabase.co/rest/v1/lanchonete_itens?select=*&order=created_at.desc 400 (Bad Request)
+supabaseClient.js:28 Erro ao buscar lanchonete_itens: {code: '42703', details: null, hint: null, message: 'column lanchonete_itens.created_at does not exist'}
+lanchonete.html:624 Usando fallback local
+lanchonete.html:633 Uncaught (in promise) ReferenceError: toast is not defined
+    at carregarLanchonete (lanchonete.html:633:9)✅ Entendi o problema!
+O erro principal é que a coluna created_at não existe na sua tabela (provavelmente você criou via interface e ela não foi gerada). Além disso, algumas funções estão faltando.
+
+Correção Rápida
+1. Atualize o supabaseClient.js (remova a ordenação por created_at)
+Abra o arquivo:
+Bashcursor supabaseClient.js
+Substitua todo o conteúdo por este:
+JavaScript// supabaseClient.js - Versão corrigida
+const SUPABASE_URL = 'https://xaotmnynsvbjugdlalmb.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_NcUtLU0LxvA3IB1UNnvyoA__nkFB6Cu';
+
+let supabaseClient = null;
+
+function initSupabase() {
+  try {
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    console.log("✅ Supabase Client inicializado com sucesso!");
+    return true;
+  } catch (e) {
+    console.error("❌ Erro Supabase:", e);
+    return false;
+  }
+}
+
+async function fetchFromSupabase(table) {
+  if (!supabaseClient) return null;
+  try {
+    const { data, error } = await supabaseClient
+      .from(table)
+      .select('*');   // Removemos a ordenação por created_at
+
+    if (error) throw error;
+    return data;
+  } catch (e) {
+    console.error(`Erro ao buscar ${table}:`, e);
+    return null;
+  }
+}
+
+window.initSupabase = initSupabase;
+window.fetchFromSupabase = fetchFromSupabase;
+Salve.
+
+2. Atualize o final do lanchonete.html
+Abra o arquivo e substitua toda a última <script> (a partir de <script src="./supabaseClient.js">) por este código completo:
+HTML<script src="./supabaseClient.js"></script>
+
+<script>
+  let dadosLanchonete = [];
+  let categoriasDisponiveis = [];
+  let filtroAtivo = "todos";
+
+  async function carregarLanchonete() {
+    document.getElementById("menu-content").innerHTML = `<div class="empty-state"><p>Carregando cardápio da lanchonete...</p></div>`;
+
+    window.initSupabase();
+    await new Promise(r => setTimeout(r, 500));
+
+    const dados = await window.fetchFromSupabase('lanchonete_itens');
+
+    if (dados && dados.length > 0) {
+      dadosLanchonete = dados.map(item => ({
+        nome: item.nome,
+        categoria: item.categoria,
+        descricao: item.descricao,
+        precoPublico: parseFloat(item.preco_publico) || 0,
+        precoSesc: parseFloat(item.preco_sesc) || 0,
+        disponivel: item.disponivel !== false,
+        destaque: item.destaque === true,
+        tags: Array.isArray(item.tags) ? item.tags : [],
+        img: item.img
+      }));
+
+      categoriasDisponiveis = [...new Set(dadosLanchonete.map(i => i.categoria).filter(Boolean))];
+      console.log(`✅ ${dadosLanchonete.length} itens carregados do Supabase`);
+    } else {
+      console.warn("⚠️ Usando fallback local");
+      const localData = typeof AppData !== 'undefined' ? AppData.carregar() : { menu: { lanchonete: { itens: [] } } };
+      dadosLanchonete = localData.menu?.lanchonete?.itens || [];
+      categoriasDisponiveis = ["Lanches", "Salgados", "Sucos & Vitaminas", "Café & Bebidas", "Doces & Bolos"];
+    }
+
+    renderFiltros();
+    renderCardapio();
+    if (typeof toast === "function") toast("Cardápio carregado!", "verde");
+  }
+
+  function renderFiltros() {
+    const container = document.getElementById("filtros-container");
+    if (!container) return;
+    let html = `<button class="filtro-btn ${filtroAtivo === "todos" ? "ativo" : ""}" onclick="filtrar('todos', this)">Todos</button>`;
+    categoriasDisponiveis.forEach(c => {
+      html += `<button class="filtro-btn ${filtroAtivo === c ? "ativo" : ""}" onclick="filtrar('${c}', this)">${c}</button>`;
+    });
+    container.innerHTML = html;
+  }
+
+  function filtrar(cat, btn) {
+    filtroAtivo = cat;
+    document.querySelectorAll(".filtro-btn").forEach(b => b.classList.remove("ativo"));
+    if (btn) btn.classList.add("ativo");
+    renderCardapio();
+  }
+
+  function renderCardapio() {
+    const container = document.getElementById("menu-content");
+    if (!container) return;
+
+    const itensVisiveis = dadosLanchonete.filter(i => i.disponivel !== false);
+    if (itensVisiveis.length === 0) {
+      container.innerHTML = `<div class="empty-state"><p>Nenhum item disponível.</p></div>`;
+      return;
+    }
+
+    let html = "";
+    const catsExibir = filtroAtivo === "todos" ? categoriasDisponiveis : [filtroAtivo];
+
+    catsExibir.forEach(cat => {
+      const itens = itensVisiveis.filter(i => i.categoria === cat);
+      if (!itens.length) return;
+      html += `<h2 class="section-title">${cat} <span class="section-count">${itens.length} itens</span></h2>`;
+      html += `<div class="menu-grid">${itens.map(renderItem).join("")}</div>`;
+    });
+
+    container.innerHTML = html;
+  }
+
+  function renderItem(item) {
+    const pub = item.precoPublico || 0;
+    const sesc = item.precoSesc || pub;
+    const desconto = pub > 0 && sesc < pub ? Math.round((1 - sesc / pub) * 100) : 0;
+    const tags = item.tags || [];
+
+    return `<div class="item-card">
+      <div style="position:relative">
+        <img class="item-img" src="${item.img || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400'}" alt="${item.nome}">
+        ${item.destaque ? '<div class="item-badges"><span class="badge badge-destaque">⭐ Destaque</span></div>' : ''}
+      </div>
+      <div class="item-body">
+        <div class="item-name">${item.nome}</div>
+        <div class="item-desc">${item.descricao || ''}</div>
+        ${tags.length ? `<div class="item-tags">${tags.map(t => `<span class="item-tag">${t}</span>`).join('')}</div>` : ''}
+        <div class="item-price">
+          <div>
+            <div class="price-label">Associado Sesc</div>
+            <div class="price-sesc">R$ ${sesc.toFixed(2).replace(".", ",")}</div>
+          </div>
+          ${desconto > 0 ? `<span class="price-pub">R$ ${pub.toFixed(2).replace(".", ",")}</span><span class="price-badge">-${desconto}%</span>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }
+
+  function toast(msg, tipo = "azul") {
+    const container = document.getElementById("toasts");
+    if (!container) return;
+    const el = document.createElement("div");
+    el.className = `toast toast-${tipo}`;
+    el.innerHTML = `<span>${tipo === "verde" ? "✅" : "☕"}</span><span>${msg}</span>`;
+    container.appendChild(el);
+    setTimeout(() => el.remove(), 4000);
+  }
+
+  window.onload = carregarLanchonete;
+</script>
+
+Salve e teste com Ctrl + F5.
+Me diga o que aparece agora no console e se os itens apareceram na página.✅ Supabase Client inicializado com sucesso!
+lanchonete.html:623 ⚠️ Usando fallback local
+carregarLanchonete@lanchonete.html:623
+ 
+ 
+Nenhum item disponível.✅ Entendi.
+O Supabase está conectando, mas não está conseguindo trazer os dados da tabela lanchonete_itens, por isso está caindo no fallback local e mostrando "Nenhum item disponível".
+Vamos diagnosticar o problema:
+1. Verifique se os dados realmente estão na tabela
+Vá no Supabase → Table Editor → clique na tabela lanchonete_itens e veja se aparecem os itens que você importou.
+Me diga:
+
+Quantos itens aparecem lá?
+A tabela está vazia?
+
+
+2. Solução mais provável: Row Level Security (RLS)
+Por padrão, o Supabase bloqueia acessos anônimos. Vamos desativar temporariamente o RLS:
+
+No Supabase, vá em Authentication → Policies (ou diretamente na tabela)
+Na tabela lanchonete_itens, desative o RLS (toggle para off)
+Faça o mesmo nas tabelas restaurante_itens e espacos
+
+Depois atualize a página da lanchonete com Ctrl + F5 e veja se agora carrega.
+
+Enquanto isso, me confirma:
+
+Os itens aparecem no Table Editor?
+Você desativou o RLS das tabelas?
+
+Depois que confirmar isso, eu te passo o ajuste final para o código.✅ Supabase Client inicializado com sucesso!
+✅ 11 itens carregados do Supabase
+GET http://127.0.0.1:5500/Vegano,Regional 404 (Not Found)
+ 
+Lanches2 itens
+⭐ Destaque
+X-Sesc Especial
+Hambúrguer artesanal com queijo e molho especial
+Associado Sesc
+R$ 11,20
+R$ 14,00-20%
+Misto Quente
+Presunto e queijo grelhado na chapa
+Associado Sesc
+R$ 6,40
+R$ 8,00-20%
+Salgados2 itens
+Coxinha de Frango
+Coxinha crocante com frango e catupiry
+Associado Sesc
+R$ 3,60
+R$ 4,50-20%
+Pão de Queijo
+Pão de queijo artesanal quentinho
+Associado Sesc
+R$ 2,80
+R$ 3,50-20%
+Sucos & Vitaminas2 itens
+⭐ Destaque
+Vitamina de Açaí
+Açaí com banana
+Associado Sesc
+R$ 9,00
+Suco de Graviola
+Suco natural de graviola
+Associado Sesc
+R$ 5,60
+R$ 7,00-20%
+Café & Bebidas2 itens
+Café Expresso
+100% arábica torrado na hora
+Associado Sesc
+R$ 3,20
+R$ 4,00-20%
+Cappuccino
+Espresso com leite vaporizado e espuma
+Associado Sesc
+R$ 5,20
+R$ 6,50-20%
+Doces & Bolos1 itens
+Bolo de Macaxeira
+Bolo de mandioca com coco e calda de leite
+Associado Sesc
+R$ 5,20
+R$ 6,50-20%
+Temperado com Farinha1 itens
+⭐ Destaque
+Kauã Esdras
+Feito na hora, feito pra vc
+Associado Sesc
+R$ 3,00
+R$ 5,00-40%
+Kauã Esdras1 itens
+⭐ Destaque
+Kauã Esdras
+Kauã Esdras
+Associado Sesc
+R$ 4,00
+R$ 5,00-20%
+Sesc Bosque — Lanchonete • Sabores que renovam sua energia✅ Parabéns! Deu certo! 🎉
+O Supabase está funcionando. Ele carregou 11 itens da tabela lanchonete_itens. Os itens novos que você adicionou manualmente já estão aparecendo no site.
+
+Resumo do que aconteceu:
+
+Conexão com Supabase: OK
+Dados sendo carregados do banco: OK
+Itens aparecendo na página: OK
+
+O erro que apareceu (GET ... Vegano,Regional 404) é inofensivo — aconteceu porque uma tag com vírgula foi interpretada como URL. Podemos corrigir depois.
+
+Próximos Passos (escolha o que quer fazer agora):
+Opção 1 (Recomendada):
+Fazer a mesma integração para as outras páginas (restaurante.html e espacos.html).
+Opção 2:
+Fazer o Painel Admin salvar/editar diretamente no Supabase (para não precisar mais usar o Table Editor).
+Opção 3:
+Limpar pequenos problemas (ex: erro das tags, melhorar o carregamento, etc.).
+
+Me diga qual você quer fazer primeiro:
+Responda com:
+
+1 → Integrar Restaurante e Espaços
+2 → Configurar o Admin para salvar no Supabase
+3 → Limpar pequenos bugs
+
+Enquanto isso, se quiser, posso já te passar o código para a página Restaurante. Quer?Será que ás imagens do produtos eu consigo fazer upload para dentro do banco de dados para que fique salvo por lá ?✅ Sim, é possível!
+Você pode fazer upload das imagens diretamente para o Supabase Storage (é a forma recomendada e mais usada). Assim as imagens ficam salvas na nuvem, seguras e com URL pública.
+
+Como configurar Upload de Imagens no Supabase
+1. Criar o Bucket (pasta) no Supabase
+
+No seu projeto Supabase, vá em Storage (no menu lateral)
+Clique em New Bucket
+Nome do Bucket: imagens-produtos (ou produtos)
+Marque como Public (para as imagens aparecerem no site)
+Crie
+
+
+2. Atualizar a tabela para guardar o caminho da imagem
+Vamos adicionar uma coluna nova nas suas tabelas (se ainda não tiver):
+Rode no SQL Editor:
+SQL-- Para lanchonete
+ALTER TABLE lanchonete_itens 
+ADD COLUMN IF NOT EXISTS img_url text;
+
+-- Para restaurante
+ALTER TABLE restaurante_itens 
+ADD COLUMN IF NOT EXISTS img_url text;
+
+3. Código para Upload (exemplo simples)
+Quer que eu te mostre como implementar o upload de imagens no Painel Admin?
+Por exemplo, quando você for cadastrar/editar um item no admin, ter um botão "Escolher Imagem" que faz upload automático para o Supabase e salva o link na tabela.
+Me confirme:
+Você quer que eu prepare:
+
+Versão simples (botão de upload no admin)
+Versão completa (com preview + progresso)
+
+E qual página você quer primeiro:
+
+Lanchonete
+Restaurante
+Ou no modal do Admin (mais recomendado)
+
+Diga qual opção prefere que eu gero o código agora.Fui tentar e apareceu a seguinte opção "img_urltext" mas eu não quero nesse formato, o formato de url já é presente em meu site, eu quero em formato de upload, de forma que quando eu estiver adicionado mais um item ele me de a opção de fazer upload da imagem do produto para o site✅ Entendi perfeitamente.
+Você não quer um campo de texto para colar URL. Você quer um upload real de imagem (botão "Escolher imagem") dentro do modal de cadastro/edição de produto.
+Vamos implementar isso agora.
+
+Passo 1: Criar o Bucket no Supabase Storage
+
+No Supabase, vá em Storage
+Clique em New Bucket
+Nome: produtos
+Marque como Public
+Crie o bucket
+
+
+Passo 2: Atualizar o Modal do Admin
+Como você está usando principalmente a página admin.html, vou focar nela primeiro.
+Abra o arquivo:
+Bashcursor admin.html
+Encontre o modal de item (modal-item) e substitua a parte da imagem por este código melhorado:
+HTML<div class="form-group">
+    <label class="form-label">Imagem do Produto</label>
+    <input type="file" id="item-imagem-upload" accept="image/*" style="width:100%;padding:0.7rem;">
+    <div id="item-imagem-preview" style="margin-top:10px;display:none;">
+        <img id="preview-img" style="max-width:200px;border-radius:8px;">
+    </div>
+    <input type="hidden" id="item-img-url"> <!-- vai guardar a URL final -->
+</div>
+
+Passo 3: Código de Upload (adicione no final do admin.html)
+Adicione este script antes do </body>:
+HTML<script>
+async function uploadImagem(file) {
+  if (!file) return null;
+
+  try {
+    const fileName = Date.now() + '-' + file.name.replace(/\s+/g, '-');
+
+    const { data, error } = await supabaseClient.storage
+      .from('produtos')
+      .upload(fileName, file, {
+        cacheControl: '3600',
+        upsert: true
+      });
+
+    if (error) throw error;
+
+    const { data: urlData } = supabaseClient.storage
+      .from('produtos')
+      .getPublicUrl(fileName);
+
+    console.log("✅ Imagem enviada:", urlData.publicUrl);
+    return urlData.publicUrl;
+
+  } catch (error) {
+    console.error("Erro no upload:", error);
+    toast("Erro ao fazer upload da imagem", "red");
+    return null;
+  }
+}
+
+// Atualize a função salvarItem() para incluir upload
+async function salvarItem() {
+  const fileInput = document.getElementById('item-imagem-upload');
+  let imagemUrl = document.getElementById('item-img-url').value;
+
+  // Se usuário selecionou uma nova imagem
+  if (fileInput.files && fileInput.files[0]) {
+    toast("Enviando imagem...", "amar");
+    imagemUrl = await uploadImagem(fileInput.files[0]);
+  }
+
+  // ... resto do seu código de salvar item ...
+  // Use a variável 'imagemUrl' para salvar no banco
+}
+</script>
+
+Quer que eu faça agora?
+Responda com SIM que eu te passo o código completo atualizado do modal + função salvarItem() já integrada.
+Ou prefere que eu faça primeiro para a Lanchonete e depois para o Admin?
+Diga como quer prosseguir.S

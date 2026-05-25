@@ -832,24 +832,6 @@ function toggleTema() {
   carregarTudo();
 })();
 
-// ====================== SUPABASE CONFIG ======================
-const SUPABASE_URL = 'https://xaotmnynsvbjugdlalmb.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_NcUtLU0LxvA3IB1UNnvyoA__nkFB6Cu';
-
-let supabaseClient;   // Este é o cliente que vamos usar
-
-function initSupabase() {
-    try {
-        // 'supabase' vem da biblioteca CDN que carregamos
-        supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-        
-        console.log('Supabase conectado com sucesso!');
-        
-    } catch (error) {
-        console.error('Erro ao conectar com Supabase:', error);
-    }
-}
-
 // Inicializa
 initSupabase();
 // ============================================================

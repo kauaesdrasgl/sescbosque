@@ -1597,8 +1597,12 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">URL da Imagem</label>
-                    <input class="form-input" id="item-img" type="url" placeholder="https://...">
+                    <label class="form-label">Imagem do Produto *</label>
+                    <input type="file" id="item-imagem-upload" accept="image/*" style="width:100%;padding:0.7rem;">
+                    <div id="item-imagem-preview" style="margin-top:10px;display:none;">
+                        <img id="preview-img" style="max-width:280px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                    </div>
+                    <input type="hidden" id="item-img-url">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Tags (separadas por vírgula)</label>
@@ -1787,43 +1791,20 @@
     <div id="toasts"></div>
 
     <!-- ═══ Módulo de dados compartilhado (fonte canônica) — carregado ANTES de script.js ═══ -->
-    <script src="./js/data.js"></script>
+    <!-- Scripts essenciais -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="./supabaseClient.js"></script>
     <script src="./script.js"></script>
-    <script>
-        // ─── Indicador de última atualização no painel admin ───────
-        (function() {
-            const el = document.getElementById('last-updated');
-            if (el && typeof AppData !== 'undefined') {
-                const ts = AppData.obterUltimaAtualizacao();
-                if (ts) el.textContent = 'Última atualização: ' + ts;
-            }
-        })();
 
-        // ─── Botão de reset de dados de demonstração ───────────────
-        // Adiciona o botão somente se ainda não existir (evitar duplicatas)
-        (function() {
-            const painel = document.getElementById('tab-relatorios');
-            if (!painel) return;
-            if (document.getElementById('btn-reset-demo')) return;
-            const btn = document.createElement('button');
-            btn.id = 'btn-reset-demo';
-            btn.style.cssText = 'margin-top:1rem;padding:.6rem 1.2rem;background:var(--red-p);color:var(--red);border:1.5px solid var(--red);border-radius:var(--r1);font-family:var(--fb);font-size:.82rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:.45rem';
-            btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/></svg> Restaurar dados de demonstração';
-            btn.onclick = function() {
-                confirmar('Restaurar todos os dados para o padrão de demonstração? Esta ação não pode ser desfeita.', function() {
-                    if (typeof AppData !== 'undefined') {
-                        AppData.resetar();
-                        carregarTudo();
-                        renderCardapio();
-                        renderEspacos();
-                        renderRelatorios();
-                        toast('Dados restaurados para o padrão de demonstração.', 'amar');
-                    }
-                });
-            };
-            painel.appendChild(btn);
-        })();
+    <script>
+        // Inicializa Supabase assim que carregar
+        window.onload = function() {
+            window.initSupabase();
+            console.log("✅ Admin carregado com Supabase");
+        };
     </script>
+</body>
+</html>
 </body>
 
 </html>

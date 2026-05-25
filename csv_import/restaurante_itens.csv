@@ -1,0 +1,10 @@
+nome,categoria,descricao,preco_publico,preco_sesc,disponivel,destaque,tags,img
+Frango Grelhado ao Limão,Prato Principal,Peito de frango grelhado com ervas finas e limão siciliano,18.50,14.80,true,true,"Sem glúten,Proteico",https://images.unsplash.com/photo-1598103442097-8b74394b95c4?w=400
+Filé de Peixe Amazônico,Prato Principal,Filé de tambaqui grelhado ao molho de tucupi com pimenta-de-cheiro,22.00,17.60,true,true,"Regional,Sem glúten",https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400
+Carne Assada ao Molho Pardo,Prato Principal,Paleta bovina assada lentamente com batatas e legumes,20.00,16.00,true,false,Proteico,https://images.unsplash.com/photo-1544025162-d76694265947?w=400
+Arroz Branco,Acompanhamentos,Arroz soltinho temperado com alho e sal,4.00,3.20,true,false,Vegano,https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?w=400
+Feijão Tropeiro,Acompanhamentos,Feijão carioca com bacon e farinha de mandioca,5.50,4.40,true,false,Regional,https://images.unsplash.com/photo-1547592180-85f173990554?w=400
+Salada da Horta,Acompanhamentos,Mix de folhas verdes com tomate e pepino,6.00,4.80,true,false,"Vegano,Sem glúten",https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400
+Pudim de Leite,Sobremesas,Pudim cremoso com calda de caramelo dourado,7.00,5.60,true,false,,https://images.unsplash.com/photo-1528975604071-b4dc52a2d18c?w=400
+Suco de Cupuaçu,Bebidas,Suco natural de cupuaçu amazônico,5.00,4.00,true,false,"Vegano,Regional",https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=400
+Água Mineral,Bebidas,Água mineral sem gás 500ml,2.50,2.00,true,false,Vegano,https://images.unsplash.com/photo-1550505095-81378a674395?w=400
