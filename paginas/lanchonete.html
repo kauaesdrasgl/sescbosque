@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR" data-tema="claro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lanchonete — Sesc Bosque</title>
+    <link rel="icon" href="./logos/icone-site.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,500&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <link rel="stylesheet" href="../css/style-pag.css">
+  </head>
+
+  <body>
+    <header id="header">
+      <div class="header-inner">
+        <div class="brand">
+          <div class="logo-header">
+            <img src="./logos/Logo Sesc padrão  White (536x536).svg" alt="" />
+          </div>
+        </div>
+        <div class="header-right">
+          <button class="btn-tema" onclick="toggleTema()" aria-label="Tema">
+            <svg
+              id="icon-tema"
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="page-hero">
+      <div class="logo-geral">
+        <h1 class="page-hero-title">Lanchonete</h1>
+        <div>
+          <a class="page-hero-desc" target="_blank" href="https://sescacre.framer.website/credencial">clique aqui para ser um <b>Associado Sesc</b></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="filtros-bar">
+      <div class="filtros-inner" id="filtros-container">
+        <button class="filtro-btn ativo" onclick="filtrar('todos', this)">
+          Todos
+        </button>
+      </div>
+    </div>
+
+    <main class="content" id="menu-content">
+      <div class="empty-state">
+        <svg
+          width="48"
+          height="48"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
+        </svg>
+        <p>Carregando cardápio da lanchonete…</p>
+      </div>
+    </main>
+
+    <footer>
+      <strong>Sesc Bosque — Lanchonete</strong> • Sabores que renovam sua
+      energia
+    </footer>
+
+    <div id="toasts"></div>
+
+    <!-- ========== SCRIPT CENTRAL (AppData) ========== -->
+    <script src="../js/supabaseClient.js"></script>
+    <script src="../js/lan.js"></script>
+  </body>
+</html>

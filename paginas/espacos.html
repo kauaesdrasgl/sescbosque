@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="claro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sesc Acre — Agendamento de Espaços. Reserve quadras, auditórios, salão de festas e campo em Rio Branco, AC.">
+  <title>Espaços — Sesc Acre</title>
+  <link rel="icon" href="./logos/icone-site.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,500&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <link rel="stylesheet" href="../css/style-esp.css">
+</head>
+<body>
+
+  <!-- HEADER (mesmo do lanchonete) -->
+  <header id="header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo-header">
+          <img src="./logos/Logo Sesc padrão  White (536x536).svg" alt="Sesc Logo" />
+        </div>
+      </div>
+      <div class="header-right">
+        <button class="btn-tema" onclick="toggleTema()" aria-label="Tema">
+          <svg id="icon-tema" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO (mesmo estilo do lanchonete) -->
+  <div class="page-hero">
+    <div class="logo-geral">
+      <h1 class="page-hero-title">Agendamento de <em>Espaços</em></h1>
+      <div>
+        <a class="page-hero-desc" target="_blank" href="https://sescacre.framer.website/credencial">clique aqui para ser um <b>Associado Sesc</b></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FILTROS -->
+  <div class="cat-filter-bar">
+    <button class="cat-filter-btn ativo" onclick="filtrar('todos',this)">Todos</button>
+    <button class="cat-filter-btn" onclick="filtrar('Esporte',this)">Esporte</button>
+    <button class="cat-filter-btn" onclick="filtrar('Eventos',this)">Eventos</button>
+    <button class="cat-filter-btn" onclick="filtrar('Corporativo',this)">Corporativo</button>
+  </div>
+
+  <!-- GRID DE ESPAÇOS -->
+  <div class="espacos-grid" id="espacos-grid"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <strong>Sesc Acre — Espaços</strong> • Reserve e viva experiências incríveis
+  </footer>
+
+  <!-- DRAWER -->
+  <div id="drawer-overlay" onclick="fecharDrawer()"></div>
+  <aside id="drawer">
+    <div class="drawer-foto">
+      <img id="drawer-foto-img" src="" alt="">
+      <div class="drawer-foto-overlay"></div>
+      <div class="drawer-foto-info">
+        <div>
+          <div style="font-size:.72rem;font-weight:700;color:rgba(255,255,255,.65)" id="drawer-cat-label"></div>
+          <div class="drawer-foto-nome" id="drawer-titulo"></div>
+        </div>
+      </div>
+      <button class="drawer-close" onclick="fecharDrawer()">✕</button>
+    </div>
+    <div class="drawer-body">
+      <div class="drawer-badges" id="drawer-badges"></div>
+      <p class="drawer-desc" id="drawer-desc"></p>
+      <div class="drawer-specs" id="drawer-specs"></div>
+      <div class="drawer-regras" id="drawer-regras" style="display:none"></div>
+    </div>
+    <div class="drawer-footer">
+      <div class="drawer-antec" id="drawer-antec"></div>
+      <button class="btn btn-verde" id="drawer-btn-reservar" onclick="abrirFormulario()">📋 Solicitar Agendamento</button>
+    </div>
+  </aside>
+
+  <!-- MODAL FORMULÁRIO -->
+  <div class="modal-overlay" id="modal-formulario">
+    <div class="modal-box">
+      <div class="modal-header">
+        <span class="modal-title" id="modal-titulo">Solicitar Agendamento</span>
+        <button class="modal-close" onclick="fecharFormulario()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="stepper">
+          <div class="stp-col"><div class="stp-circle ativo" id="stp1">1</div><span class="stp-label ativo" id="stp1-lbl">Contato</span></div>
+          <div class="stp-linha" id="linha12"></div>
+          <div class="stp-col"><div class="stp-circle" id="stp2">2</div><span class="stp-label" id="stp2-lbl">Data & Hora</span></div>
+          <div class="stp-linha" id="linha23"></div>
+          <div class="stp-col"><div class="stp-circle" id="stp3">3</div><span class="stp-label" id="stp3-lbl">Confirmar</span></div>
+        </div>
+
+        <div id="passo1">
+          <div style="background:var(--azul-p);border-radius:var(--r2);padding:1rem;margin-bottom:1.25rem">
+            <div style="font-weight:700;color:var(--azul)" id="form-espaco-nome">Espaço</div>
+            <div style="font-size:.78rem" id="form-espaco-info"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Nome completo *</label><input class="form-input" id="f-nome" type="text"></div>
+            <div class="form-group"><label class="form-label">Matrícula Sesc *</label><input class="form-input" id="f-mat" type="text" maxlength="6"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">E-mail *</label><input class="form-input" id="f-email" type="email"></div>
+            <div class="form-group"><label class="form-label">Telefone *</label><input class="form-input" id="f-tel" type="tel"></div>
+          </div>
+        </div>
+
+        <div id="passo2" style="display:none">
+          <div class="cal-wrap">
+            <div class="cal-top"><span class="cal-mes-titulo" id="cal-mes-titulo"></span>
+              <div><button class="cal-nav-btn" onclick="navCal(-1)">‹</button><button class="cal-nav-btn" onclick="navCal(1)">›</button></div>
+            </div>
+            <div class="cal-grid" id="cal-grid"></div>
+            <div class="cal-legenda">
+              <div class="leg-item"><div class="leg-dot" style="background:var(--border-2)"></div>Disponível</div>
+              <div class="leg-item"><div class="leg-dot" style="background:var(--red-p)"></div>Ocupado</div>
+              <div class="leg-item"><div class="leg-dot" style="background:var(--azul)"></div>Selecionado</div>
+            </div>
+          </div>
+          <div class="data-chip" id="data-chip">📅 <span id="data-chip-txt"></span></div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Horário início *</label><select class="form-select" id="f-hi"><option value="">Selecione</option></select></div>
+            <div class="form-group"><label class="form-label">Horário término *</label><select class="form-select" id="f-hf"><option value="">Selecione</option></select></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Nº de pessoas *</label><input class="form-input" id="f-pessoas" type="number"></div>
+            <div class="form-group"><label class="form-label">Finalidade *</label><select class="form-select" id="f-finalidade"><option value="">Selecione</option><option>Esporte/Lazer</option><option>Evento Cultural</option><option>Treinamento</option><option>Confraternização</option></select></div>
+          </div>
+          <div class="form-group"><label class="form-label">Observações</label><textarea class="form-textarea" id="f-obs"></textarea></div>
+        </div>
+
+        <div id="passo3" style="display:none">
+          <div class="fs-erro-box" id="fs-erro-box">⚠️ <span id="fs-erro-txt"></span></div>
+          <div id="resumo-wrap"><div id="resumo-content"></div>
+            <div class="termos-row"><label><input type="checkbox" id="f-termos"> Aceito as regras de uso do espaço e os termos do sistema.</label></div>
+          </div>
+          <div class="sucesso-box" id="sucesso-wrap" style="display:none">
+            <div class="sucesso-icon">✅</div>
+            <div class="sucesso-titulo">Solicitação enviada!</div>
+            <p>Retornaremos em até 48h úteis.</p>
+            <div class="sucesso-protocolo" id="sucesso-protocolo"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" id="modal-footer-btns">
+        <button class="btn btn-outline" id="btn-voltar" style="display:none" onclick="passoVoltar()">← Voltar</button>
+        <button class="btn btn-primary" id="btn-avancar" onclick="passoAvancar()">Avançar →</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toasts"></div>
+  <script src="../js/esp.js"></script>
+</body>
+</html>
